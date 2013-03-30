@@ -24,5 +24,20 @@ class User < ActiveRecord::Base
   has_many :steering_projects, :class_name => "Project", :foreign_key => :steer_id
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :activities
-  
+
+  ### Email Account Creation
+  # The following method of achieving this with devise is from
+  # https://github.com/plataformatec/devise/wiki/How-To:-Email-only-sign-up
+
+  def password_required?
+    super if confirmed?
+  end
+
+  def password_match?
+    self.errors[:password] << "can't be blank" if password.blank?
+    self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
+    self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+    password == password_confirmation && !password.blank?
+  end
+
 end

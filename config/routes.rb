@@ -4,7 +4,13 @@ StrategyStroller::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   
-  devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'},
+             :controllers => {:confirmations => 'confirmations'}
+
+  # The following is to confirm your account after you have been emailed for it's creation
+  devise_scope :user do
+    put "/user/confirm" => "confirmations#confirm"
+  end
 
   match "controller_unit/controller_panel" => 'controller_unit#controller_panel', :as => 'controller_panel'
   match "provider/provider_panel" => 'provider#provider_panel', :as => 'provider_panel'
