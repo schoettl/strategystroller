@@ -1,0 +1,10 @@
+ body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+/* below is for devise popups */
+#error_explanation h2{
+    font-size: 16px;
+    line-height: 20px;
+}
