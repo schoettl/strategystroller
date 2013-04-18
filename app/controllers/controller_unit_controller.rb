@@ -1,9 +1,16 @@
 class ControllerUnitController < ApplicationController
-  before_filter :authenticate_user!
-  #before_filter do
-  # #should handle checking that a user is a cu, as of yet untested TODO test me.
-    #redirect_to :new_user_session_path unless current_user && current_user.controlling_unit?
-  #end
+  #before_filter :authenticate_user!
+
+  # should handle checking that a user is a cu, as of yet untested TODO test me.
+  before_filter do
+    if current_user.is_a?(User)
+      unless current_user.controlling_unit?
+        redirect_to :provider_panel
+      end
+    else
+      redirect_to :new_user_session
+    end
+  end
 
    def welcome
      @user = current_user

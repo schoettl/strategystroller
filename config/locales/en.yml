@@ -31,4 +31,11 @@ en:
   welcome: "Welcome"
   send_me_reset_password_instructions: "Send me reset password instructions"
   someone_requested_a_link_to_change_password: "Someone has requested a link to change your password. You can do this through the link below."
+  create_user_email: "Send new user invitation email"
+  create_user: "Create a new user"
+  select_user_type: "Select user type:"
+  provider: "Provider"
+  cu: "Controlling Unit"
+  blank_field_error: "Field can't be blank."
+  password_does_not_match: "Password does not match"
 

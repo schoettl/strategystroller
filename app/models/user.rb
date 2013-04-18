@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
          :confirmable, :timeoutable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :business_code
+  attr_accessible :username, :email, :password, :password_confirmation, :business_code, :controlling_unit #, :remember_me
+  # attr_accessible :title, :body
 
   # these validations are redundant - they're ensured through a combination of the database migration/definition and in
   # devise.rb initializer and in the :validatable module. Put here for documentation mainly.
@@ -39,9 +40,9 @@ class User < ActiveRecord::Base
   end
 
   def password_match?
-    self.errors[:password] << "can't be blank" if password.blank?
-    self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
-    self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+    self.errors[:password] << (t :blank_field_error) if password.blank?
+    self.errors[:password_confirmation] << (t :blank_field_error) if password_confirmation.blank?
+    self.errors[:password_confirmation] << (t :password_does_not_match) if password != password_confirmation
     password == password_confirmation && !password.blank?
   end
 

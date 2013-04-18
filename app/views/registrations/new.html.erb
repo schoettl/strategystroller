@@ -8,18 +8,12 @@
   <% end %>
 
 
-  <%= f.text_field :username, :class => "input-block-level", :placeholder => (t :username)%>
-
   <%= f.email_field :email, :class => "input-block-level", :placeholder => (t :email_address)%>
 
-  <%= f.text_field :business_code, :class => "input-block-level", :placeholder => (t :buisness_code) %>
-
-  <%= f.password_field :password, :class => "input-block-level", :placeholder => (t :password) %>
-
-  <%= f.password_field :password_confirmation,:class => "input-block-level", :placeholder => (t :confirm_password) %>
+  <%= f.input (t :select_user_type), :controlling_unit, :class => "input-block-level", :as => :select, :collection => [[(t :provider), false], [(t :cu), true]] %>
 
 	<div class="row-fluid">
-       <%= f.submit (t :sign_up), :class=> "btn btn-large btn-primary span6"%>
+       <%= f.submit (t :create_user_email), :class=> "btn btn-large btn-primary span6"%>
        <input type=button class="btn btn-large btn-primary span6" value='<%= t :cancel %>' onclick= "cancel_button()">
 	</div>
 <% end %>
