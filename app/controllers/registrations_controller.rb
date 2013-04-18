@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     if current_user.controlling_unit?
-      resource = User.
+      resource = build_resource({})
       respond_with resource
     else
       set_flash_message :alert, "Only Controller Units can create new users."
