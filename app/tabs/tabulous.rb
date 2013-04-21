@@ -127,7 +127,7 @@ Tabulous.setup do |config|
   # This gives you control over what class the <ul> element that wraps the tabs
   # will have.  Good for interfacing with third-party code like Twitter
   # Bootstrap.
-  # config.tabs_ul_class = "nav nav-pills"
+   config.tabs_ul_class = "nav nav-tabs"
 
   # This gives you control over what class the <ul> element that wraps the subtabs
   # will have.  Good for interfacing with third-party code.
@@ -136,7 +136,7 @@ Tabulous.setup do |config|
   # Set this to true to have subtabs rendered in markup that Twitter Bootstrap
   # understands.  If this is set to true, you don't need to call subtabs in
   # your layout, just tabs.
-  # config.bootstrap_style_subtabs = true
+   config.bootstrap_style_subtabs = true
 
 
   #-------------------
@@ -159,7 +159,7 @@ Tabulous.setup do |config|
   # head start or an easy way to prototype quickly.  Set this to false if
   # you are using Twitter Bootstrap.
   # 
-  config.css.scaffolding = true
+  config.css.scaffolding = false
 
   # You can tweak the colors of the generated CSS.
   #

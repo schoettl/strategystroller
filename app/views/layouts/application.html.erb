@@ -10,11 +10,15 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
 
 
-    <!--<%= javascript_include_tag "application" %>-->
-	<%= javascript_include_tag "custom" %>
+    <%= javascript_include_tag "application" %>
+	<!-- Only use application for all js files or individual calls for each to prevent duplication
+    <%= javascript_include_tag "custom" %>-->
     <!-- Added for cocoon gem -->
     <!--<%= javascript_include_tag :cocoon %>-->
-
+  <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <script src="/assets/twitter/bootstrap/bootstrap-dropdown.js">-->
 
 
     <%= csrf_meta_tags %>
@@ -28,25 +32,34 @@
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
+    
       <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Strategy Stroller</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <%= render 'devise/menu/login_items' %>
-              <%= render 'devise/menu/registration_items' %>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+      <div class="container">
+        	<a class="brand" href="/">Strategy Stroller</a>
+        					<ul class = "nav">
+<li id ="navbar_forms"><%= link_to "Forms", forms_path %></li>
+<li id="navbar_reports"><a>Reports</a></li>
+<li id= "navbar_setup"><%= link_to "Setup", input_framework_path %></li>
+<li id= "navbar_edit_users"><%= link_to "Edit Users", edit_users_path %></li>
+			<div class="btn-group pull-right">
+
+
+        	</ul>
+			  <a class="btn dropdown-toggle btn-inverse pull-right" data-toggle="dropdown">
+			    User Settings
+			    <span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+			  	<li><%= render 'devise/menu/login_items' %></li>
+			    <li><%= render 'devise/menu/registration_items' %></li>
+			  </ul>
+			</div>
+            </div>
+          
       </div>
     </div>
 
-    <div class="container">
+    <div class="container body_container">
 
       <!-- Display messages For devise. -->
       <p class="notice"><%= notice %></p>
@@ -56,12 +69,12 @@
       <%= yield %>
 
     </div> <!-- /container -->
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-   <!-- <%= javascript_include_tag "application" %>-->
-    <!-- Added for cocoon gem -->
-   <!--  <%= javascript_include_tag :cocoon %>-->
+
+  <!--  <div class="container">
+    <div class="footer">
+    <center>FOOTER &copy; Strategy Stroller 2013</center>
+    </div>
+    </div>-->
   </body>
 </html>
 
