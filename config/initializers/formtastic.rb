@@ -1,2 +1,1 @@
-Formtastic::Helpers::FormHelper.builder =
-FormtasticBootstrap::FormBuilder
+Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
