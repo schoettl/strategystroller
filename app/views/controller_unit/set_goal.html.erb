@@ -1,17 +1,22 @@
-<body>
-    <%= tabs %>
-    <%= flash[:notice] %>
-    <%= flash[:error] %><br>
+<!--<div class="setup_container">
+<div class="navbar navbar-inverse navbar-sub navbar-fixed-top">
+      <div class="navbar-inner">
+      <div class="container">-->
+      <%= tabs %>
+ <!--     </div>
+      </div>
+      </div>-->
+    <%= render "setup_alerts" %>
 
-    <%= semantic_form_for @goal do |f| %>
+    <%= semantic_form_for @goal, :html => { :class => "form-stacked"} do |f|%>
         <%= f.inputs do %>
+<div class="row-fluid">
 
-          <%= f.input :name, :required => true, :as => :string, :label => "Name of Goal" %>
+          <%= f.input :name, :required => true, :as => :string, :label => "Name of Goal",:input_html => { :class => "span4" }%>
 
-          <%= f.input :dimension_id, :as => :select, :collection => Dimension.all, :required => true, :label => "Associated Dimension" %>
-
-          <%= f.input :user_id, :as => :select, :collection => User.all, :required => true, :label => "Responsible" %>
-
+          <%= f.input :dimension_id, :as => :select, :collection => Dimension.all, :required => true, :label => "Associated Dimension",:input_html => { :class => "span3" } %>
+          <%= f.input :user_id, :as => :select, :collection => User.all, :required => true, :label => "Responsible",:input_html => { :class => "span4" } %>
+</div>
           <%= f.input :need, :as => :text, :input_html => { :rows => 5, :cols => 10 }, :required => false, :label => "Call for Action" %>
           
           <%= f.input :justification, :as => :text, :input_html => { :rows => 5, :cols => 10 }, :required => false, :label => "Justification of Specific Goal" %>
@@ -27,4 +32,4 @@
         <% end %>
     <%= f.action :submit, :label => "Save Goal" %>
     <% end %>
-</body>
+<!--</div>-->

@@ -37,6 +37,25 @@ else if(nav.search("controller_unit/edit_users")!=-1){
 jQuery("#navbar_edit_users").addClass("active");
 }
 }
+function setBodyColor(){
+ref = window.location.href;
+if(ref.search("/users/")!=-1){
+jQuery("body").css("background-color", "white");
+}
+}
+function setNavType(){
+jQuery("#cu_nav").hide();
+ref = window.location.href;
+if(ref.search("controller_unit/")!=-1){
+jQuery("#cu_nav").show();
+}
+if(ref.search("forms/")!=-1){
+jQuery("#cu_nav").show();
+}
+
+}
 jQuery(document).ready(function(){
+setBodyColor();
+setNavType();
 setActiveNav();
 });
