@@ -17,7 +17,7 @@ $ git clone https://github.com/markddavidoff/strategystroller.git
 
 $ cd strategystroller
 
-$ git checkout -b v3.2
+$ git checkout -b v4.1
 
 $ rake db:drop
 
@@ -28,6 +28,10 @@ $ rake db:test:prepare
 $ rails server
 
 The application can be accessed at localhost:3000 from a browser.
+
+If a set of fake data is desired, do:
+
+$ rake fake_data:all 
 
 To run all unit tests and coverage test:
 
