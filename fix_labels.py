@@ -20,7 +20,7 @@ def main(argv):
                 if "spec.rb" not in filen:
                     path = dirpath+"/"+filen
                     print path
-                    for line in fileinput.FileInput(path,inplace=1): #,inplace=1
+                    for line in fileinput.FileInput("testfile.html.erb",inplace=1): #,inplace=1
                         #line = line.replace(";"," ")
                         if ':label => "' in line:
                             #print line
@@ -33,9 +33,9 @@ def main(argv):
                             replacement = ":label => (I18n.t "+ short+")"
                             line = line.replace(':label => "'+name+'"', replacement)
                         
-                    else:
-                        line =line
-                    print line,
+                        else:
+                            line =line
+                        print line,
     #print trans
     newfile = open("./translated", 'a')
     for ent in trans:
