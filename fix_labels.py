@@ -20,7 +20,7 @@ def main(argv):
                 if "spec.rb" not in filen:
                     path = dirpath+"/"+filen
                     print path
-                    for line in fileinput.FileInput("testfile.html.erb",inplace=1): #,inplace=1
+                    for line in fileinput.FileInput(path,inplace=1): #,inplace=1
                         #line = line.replace(";"," ")
                         if ':label => "' in line:
                             #print line
