@@ -126,7 +126,6 @@ class ProviderController < ApplicationController
         @current_indicator.update_attributes(params[:indicator], :updated_at => Time.current)
         flash[:notice] = "Indicator successfully submitted!"
       elsif (params[:commit] == "Save Indicator")
-        @current_form.update_attributes(:reviewed => false)
         @current_indicator.update_attributes(params[:indicator]) #don't want to set updated_at if just saving ind
         flash[:notice] = "Indicator changes saved!"
       end
@@ -171,7 +170,6 @@ class ProviderController < ApplicationController
           @current_project.update_attributes(params[:project], :updated_at => Time.current)
           flash[:notice] = "Project successfully submitted!"
         elsif (params[:commit] == "Save Project")
-          @current_form.update_attributes(:reviewed => false)
           @current_project.update_attributes(params[:project]) #don't want to set updated_at if just saving proj
           flash[:notice] = "Project successfully saved!"
         end

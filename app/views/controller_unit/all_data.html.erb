@@ -56,7 +56,7 @@
                         </span>
                     </div>
 					<ul>
-						<% Indicator.where(:all, :include => :goals, :conditions => ["goals.id =?", g])do |i| %>
+						<% g.indicators.each do |i| %>
 						<li class = "li_tree_indic">
 							<div>
                                 
@@ -71,12 +71,13 @@
                                 </span>
                             </div>
 							<ul>
-								<% Project.where(:indicator_id => i).each do |p| %>
+						
+								<% i.projects.each do |p| %>
 								<li class = "li_tree_proj">
 									<div>
-                                         <% if p.status >= 1 %>
+                                         <% if p.status_global >= 1 %>
                                         <span class="label label-success treebadge nocorner">
-                                        <% elsif p.status >= 0.9 %>
+                                        <% elsif p.status_global >= 0.9 %>
                                         <span class="label label-warning treebadge nocorner">
                                         <% else %>
                                         <span class="label label-important treebadge nocorner">
