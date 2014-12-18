@@ -1,0 +1,44 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Project</a>
+  </div>
+</div>
+<div class="well">
+  <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tab-project-overview">Overview</a></li>
+      <li><a href="#tab-project-planning">Project Planning</a></li>
+      <li><a href="#tab-project-resolutions">Resolution</a></li>
+      <li><a href="#tab-project-calculation">Economic Efficiency Calculation</a></li>
+      <li><a href="#tab-project-status">Status</a></li>
+    </ul>
+    <div id="tab-project-overview">
+      <div>
+        <div>ID: <%= @project.id %></div>
+        <div>
+          <%= f.label :short_name %>
+          <%= f.text_field :short_name %>
+        </div>
+        <div>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <%= f.submit %>
+      </div>
+    </div>
+    <div id="tab-project-planning">
+      <p>projektplanung</p>
+    </div>
+    <div id="tab-project-resolutions">
+      <p>beschlussvorlage</p>
+    </div>
+    <div id="tab-project-calculation">
+      <p>wirtschaftlichkeitsrechnung</p>
+    </div>
+    <div id="tab-project-status">
+      <p>status</p>
+    </div>
+  </div>
+  <% end %>
+</div>
