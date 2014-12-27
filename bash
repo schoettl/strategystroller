@@ -8,6 +8,9 @@ rails generate migration add_isproject_to_projects isproject:boolean
 #14
 rails generate migration add_midtermplanning_to_projects midtermplanning:boolean
 
+#11
+bin/rails generate model Customer name:string
+
 rake db:reset
 rake db:migrate
 rake db:seed
@@ -15,4 +18,3 @@ rake db:seed
 
 
 
-rake db:schema:dump

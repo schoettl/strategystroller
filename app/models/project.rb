@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+   belongs_to :customer
   attr_accessible :actual_cost, :actual_manp, :compensation, :description, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
                   :status_manp, :status_ms, :status_notes, :status_prog, :target_cost, :target_manp,
