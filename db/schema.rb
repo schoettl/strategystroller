@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141227180340) do
+ActiveRecord::Schema.define(:version => 20141227184200) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20141227180340) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.text     "managementsummary"
+    t.text     "management_summary"
     t.text     "team"
     t.date     "startDate"
     t.date     "endDate"
@@ -166,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20141227180340) do
     t.decimal  "actual_cost"
     t.decimal  "status_cost"
     t.text     "status_notes"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "head_id"
     t.integer  "steer_id"
     t.string   "short_name"
@@ -179,11 +179,10 @@ ActiveRecord::Schema.define(:version => 20141227180340) do
     t.text     "yearly_target_manp"
     t.decimal  "status_manp"
     t.text     "status_ms"
+    t.boolean  "is_project"
+    t.boolean  "is_strategic_management"
+    t.boolean  "mid_term_planning"
     t.boolean  "is_subproject"
-    t.boolean  "subproject"
-    t.boolean  "strategicmanagement"
-    t.boolean  "isproject"
-    t.boolean  "midtermplanning"
   end
 
   create_table "users", :force => true do |t|
