@@ -1,0 +1,1 @@
+bin/rails generate model Customer name:string

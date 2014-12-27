@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506060552) do
+ActiveRecord::Schema.define(:version => 20141227172029) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -74,6 +74,12 @@ ActiveRecord::Schema.define(:version => 20130506060552) do
     t.integer  "time_horizon"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "dimensions", :force => true do |t|
@@ -160,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20130506060552) do
     t.decimal  "actual_cost"
     t.decimal  "status_cost"
     t.text     "status_notes"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "head_id"
     t.integer  "steer_id"
     t.string   "short_name"
@@ -173,6 +179,11 @@ ActiveRecord::Schema.define(:version => 20130506060552) do
     t.text     "yearly_target_manp"
     t.decimal  "status_manp"
     t.text     "status_ms"
+    t.boolean  "is_subproject"
+    t.boolean  "subproject"
+    t.boolean  "strategicmanagement"
+    t.boolean  "isproject"
+    t.boolean  "midtermplanning"
   end
 
   create_table "users", :force => true do |t|
@@ -199,6 +210,7 @@ ActiveRecord::Schema.define(:version => 20130506060552) do
     t.string   "business_code"
     t.string   "temp_password"
     t.integer  "application_id"
+    t.boolean  "active"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
