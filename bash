@@ -7,9 +7,11 @@ rails generate migration add_strategicmanagement_to_projects strategicmanagement
 rails generate migration add_isproject_to_projects isproject:boolean
 #14
 rails generate migration add_midtermplanning_to_projects midtermplanning:boolean
-
 #11
 bin/rails generate model Customer name:string
+#6
+rails generate migration ChangeColumnNameProjects
+
 
 rake db:reset
 rake db:migrate
