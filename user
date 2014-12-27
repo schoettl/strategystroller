@@ -1,0 +1,5 @@
+email,username,controlling_unit,business_code,active
+frselo@web.de,web,true,web,true
+frselo@googlemail.com,google,true,GMAIL,false
+florenz@imn.htwk-leipzig.de,HTWK,false,IMN,true
+julian-yacht@web.de,Julian,false,JUL,false

@@ -223,10 +223,10 @@ class ControllerUnitController < ApplicationController
                       
                         temp_password = SecureRandom.hex
                         cu = users_hash[key][:controlling_unit]
-                        user = User.new(:username => username, :email => email, :password => temp_password, :temp_password => temp_password, :controlling_unit => cu)
+                        user = User.new(:username => username, :email => email, :password => temp_password, :temp_password => temp_password, :controlling_unit => cu,  :active=>active)
                         if user.save
                             numSaved += 1
-                           user.send_confirmation_instructions #TODO TEST
+                           #user.send_confirmation_instructions #TODO TEST
                         else
                             notSaved << email
                         end

@@ -31,8 +31,9 @@ cu = User.new(
     :business_code => 'JB',
     :password_confirmation => 'controllingunit',
     :controlling_unit => true,
-    :username => "James Bond"
-)
+    :username => "James Bond",
+    :active =>true
+    )
 cu.skip_confirmation!
 cu.save
 
@@ -42,7 +43,8 @@ provider = User.new(
     :business_code => 'AW',
     :password_confirmation => 'provider',
     :controlling_unit => false,
-    :username => "Andy Warhol"
+    :username => "Andy Warhol",
+    :active =>true
 )
 provider.skip_confirmation!
 provider.save

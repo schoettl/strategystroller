@@ -80,3 +80,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug'
+
+gem 'active_admin_importable'
+
