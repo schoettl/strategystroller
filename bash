@@ -11,9 +11,10 @@ rails generate migration add_midTermPlanning_to_projects mid_term_planning:boole
 bin/rails generate model Customer name:string
 #6
 rails generate migration ChangeColumnNameProjects
-3#
+#3
 rails generate migration ChangeColumnTypeProjects
-
+#7
+rails generate migration add_columns_to_projects decision_requirements_1:text decision_requirements_2:text decision_requirements_3:text decision_requirements_4:text scope:text obstacles_and_risks:text open_issues:text
 
 rake db:reset
 rake db:migrate

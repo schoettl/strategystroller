@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141227185724) do
+ActiveRecord::Schema.define(:version => 20141227202750) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -183,6 +183,13 @@ ActiveRecord::Schema.define(:version => 20141227185724) do
     t.boolean  "is_strategic_management"
     t.boolean  "mid_term_planning"
     t.boolean  "is_subproject"
+    t.text     "decision_requirements_1"
+    t.text     "decision_requirements_2"
+    t.text     "decision_requirements_3"
+    t.text     "decision_requirements_4"
+    t.text     "scope"
+    t.text     "obstacles_and_risks"
+    t.text     "open_issues"
   end
 
   create_table "users", :force => true do |t|
