@@ -53,17 +53,19 @@ StrategyStroller::Application.routes.draw do
   match "provider/home" => "provider#forms_composite", :as => "forms_composite"
   match "provider/update" => "provider#forms_composite_update", :as => "forms_composite_update"
   match "provider/activity_edit" => "provider#activity_edit", :as => 'activity_edit'
+  match "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
 
   #applications path currently defaults to setup_system path so really we only need
   #first 'post' route below, but including all 'post' paths to be safe/in case we need them
   post "controller_unit/setup_system" => "controller_unit#applications", :as => "applications"
   post "controller_unit/create_users" => "controller_unit#applications"
   post "controller_unit/remove_users" => "controller_unit#applications"
+  post "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
   get "controller_unit/setup_system" => "controller_unit#setup_system", :as => "setup_system"
   get "controller_unit/create_users" => "controller_unit#create_users", :as => "create_users"
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
   get "controller_unit/edit_users" => "controller_unit#edit_users", :as => "edit_users"
-
+  get "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
   ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
 
   # The priority is based upon order of creation:

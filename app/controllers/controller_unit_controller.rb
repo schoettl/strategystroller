@@ -462,4 +462,12 @@ class ControllerUnitController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   
+   def upload_index
+     render :file => 'app\views\controller_unit\uploadfile.html.erb'
+  end
+  def uploadFile
+    post = DataFile.save(params[:upload])
+    render :text => "File has been uploaded successfully"
+  end
+  
 end
