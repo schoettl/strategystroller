@@ -1,10 +1,16 @@
+<%= stylesheet_link_tag 'jquery-ui.css' %>
+<script>
+    $(function() {
+        $('#tabs').tabs();
+    });
+</script>
+
 <div class="navbar">
   <div class="navbar-inner">
     <a class="brand" href="#">Project</a>
   </div>
 </div>
 <div class="well">
-  <%= form_for :project, url: project_path(@project), method: :put do |f| %>
   <div id="tabs">
     <ul>
       <li><a href="#tab-project-overview">Overview</a></li>
@@ -14,8 +20,8 @@
       <li><a href="#tab-project-status">Status</a></li>
     </ul>
     <div id="tab-project-overview">
-      <div>
-        <div>ID: <%= @project.id %></div>
+      <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+        <div>Project ID: <%= @project.id %></div>
         <div>
           <%= f.label :short_name %>
           <%= f.text_field :short_name %>
@@ -24,21 +30,114 @@
           <%= f.label :name %>
           <%= f.text_field :name %>
         </div>
+        <div>
+          <%= f.label :head %>
+          <%= f.select :head, options_for_select([['user1', '1'], ['user2', '2']]) %> <!-- single, class: chosen-select, selected_value -->
+        </div>
+        <div>
+          <%= f.label :is_strategic_management %>
+          <%= f.check_box :is_strategic_management %>
+        </div>
+        <div>
+          <%= f.label :is_project %>
+          <%= f.check_box :is_project %>
+        </div>
+        <div>
+          <%= f.label :indicators %>
+          <%= f.select :indicators, options_for_select([['indicator1', '1']]) %> <!-- multiple, class: chosen-select, selected_values -->
+        </div>
+        <div>
+          <%= f.label :management_summary %>
+          <%= f.text_area :management_summary %>
+        </div>
+        <div><!--
+          %= f.label :description_of_objectives %>
+          %= f.text_area :description_of_objectives %>-->
+        </div>
         <%= f.submit %>
-      </div>
+        <%= link_to 'Cancel', edit_project_path(@project) %>
+      <% end %>
     </div>
     <div id="tab-project-planning">
-      <p>projektplanung</p>
+      <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <div>
+            <%= f.label :startDate %>
+            <%= f.date_select :startDate %>
+          </div>
+          <div>
+            <%= f.label :is_subproject %>
+            <%= f.check_box :is_subproject %>
+          </div>
+          <div>
+            <%= f.label :target_manp %>
+            <%= f.text_field :target_manp %>
+          </div>
+          <div>
+            <%= f.label :target_cost %>
+            <%= f.text_field :target_cost %>
+          </div>
+          <div>
+            <%= f.label :notes %>
+            <%= f.text_area :notes %>
+          </div>
+          <div>
+            Here should be the complex gantt diagram showing activities.
+          </div>
+      <% end %>
     </div>
     <div id="tab-project-resolutions">
-      <p>beschlussvorlage</p>
+      <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <div>
+            <%= f.label :decision_requirements_1 %>
+            <%= f.text_area :decision_requirements_1 %>
+          </div>
+          <div>
+            <%= f.label :decision_requirements_2 %>
+            <%= f.text_area :decision_requirements_2 %>
+          </div>
+          <div>
+            <%= f.label :decision_requirements_3 %>
+            <%= f.text_area :decision_requirements_3 %>
+          </div>
+          <div>
+            <%= f.label :decision_requirements_4 %>
+            <%= f.text_area :decision_requirements_4 %>
+          </div>
+          <div>
+            <%= f.label :scope %>
+            <%= f.text_area :scope %>
+          </div>
+          <div>
+            <%= f.label :obstacles_and_risks %>
+            <%= f.text_area :obstacles_and_risks %>
+          </div>
+          <div>
+            <%= f.label :open_issues %>
+            <%= f.text_area :open_issues %>
+          </div>
+          Hier kommt noch der kleine File Browser mit Möglichkeiten zum Download und Upload (-> FileDrop)
+      <% end %>
     </div>
     <div id="tab-project-calculation">
-      <p>wirtschaftlichkeitsrechnung</p>
+      <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <div>
+            <%= f.label :mid_term_planning %>
+            <%= f.check_box :mid_term_planning %>
+          </div>
+          <div>
+            <%= f.label :compensation %>
+            <%= f.check_box :compensation %>
+          </div>
+          Hier fehlt die Tabelle mit den Daten, über Jahre...
+      <% end %>
     </div>
     <div id="tab-project-status">
-      <p>status</p>
+      <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <div>
+            <%= f.label :status_notes %>
+            <%= f.text_area :status_notes %>
+          </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
 </div>
