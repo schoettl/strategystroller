@@ -61,11 +61,13 @@ StrategyStroller::Application.routes.draw do
   post "controller_unit/create_users" => "controller_unit#applications"
   post "controller_unit/remove_users" => "controller_unit#applications"
   post "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
+  post "controller_unit/upload_file"=> "controller_unit#upload_file" , :as => "upload_file"
   get "controller_unit/setup_system" => "controller_unit#setup_system", :as => "setup_system"
   get "controller_unit/create_users" => "controller_unit#create_users", :as => "create_users"
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
   get "controller_unit/edit_users" => "controller_unit#edit_users", :as => "edit_users"
   get "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
+  get "controller_unit/upload_file"=> "controller_unit#upload_file" , :as => "upload_file"
   ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
 
   # The priority is based upon order of creation:
