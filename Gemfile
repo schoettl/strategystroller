@@ -27,6 +27,7 @@ gem 'coffee-script-source', '~> 1.4.0'
 #Twitter Bootstrap
 #gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'formtastic-bootstrap'
 gem 'tabulous', '1.3.2'

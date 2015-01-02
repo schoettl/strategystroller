@@ -19,6 +19,7 @@
 //= require twitter/bootstrap/dropdown
 //= require twitter/bootstrap/tooltip
 //= require twitter/bootstrap/popover
+//= require bootstrap-datepicker
 //= require cocoon
 //= require_directory .
 
