@@ -48,9 +48,9 @@
           <%= f.label :management_summary %>
           <%= f.text_area :management_summary %>
         </div>
-        <div><!--
-          %= f.label :description_of_objectives %>
-          %= f.text_area :description_of_objectives %>-->
+        <div>
+          <%= f.label :description_of_objectives %>
+          <%= f.text_area :description_of_objectives %>
         </div>
         <%= f.submit %>
         <%= link_to 'Cancel', edit_project_path(@project) %>
