@@ -60,7 +60,7 @@
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
           <div>
             <%= f.label :startDate %>
-            <%= f.date_select :startDate %>
+            <%= f.text_field :startDate, :class => 'date-field' %>
           </div>
           <div>
             <%= f.label :is_subproject %>

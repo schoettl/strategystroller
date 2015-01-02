@@ -1,5 +1,9 @@
 $(function() {
     $('#tabs').tabs();
+
+    $('.date-field').datepicker({
+        format: "yyyy-mm-dd"
+    });
 /*
     $('#document_table tbody').on('dblclick', 'tr', function() {
         alert('download file: ' + $(this).text());
