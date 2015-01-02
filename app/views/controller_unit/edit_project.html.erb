@@ -30,7 +30,7 @@
         </div>
         <div>
           <%= f.label :head %>
-          <%= f.select :head, options_for_select([['user1', '1'], ['user2', '2']]) %> <!-- single, class: chosen-select, selected_value -->
+          <%= f.select :head, options_for_select([['user1', '1'], ['user2', '2']]), {}, {:class => 'chosen-select'} %> <!-- single, selected_value -->
         </div>
         <div>
           <%= f.label :is_strategic_management %>
@@ -42,7 +42,7 @@
         </div>
         <div>
           <%= f.label :indicators %>
-          <%= f.select :indicators, options_for_select([['indicator1', '1']]) %> <!-- multiple, class: chosen-select, selected_values -->
+          <%= f.select :indicators, options_for_select([['indicator1', '1']]), {}, {:class => 'chosen-select'} %> <!-- multiple, selected_values -->
         </div>
         <div>
           <%= f.label :management_summary %>

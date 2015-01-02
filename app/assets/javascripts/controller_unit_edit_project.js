@@ -4,6 +4,9 @@ $(function() {
     $('.date-field').datepicker({
         format: "yyyy-mm-dd"
     });
+
+    $('.chosen-select').chosen();
+
 /*
     $('#document_table tbody').on('dblclick', 'tr', function() {
         alert('download file: ' + $(this).text());
