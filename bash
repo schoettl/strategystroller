@@ -15,7 +15,8 @@ rails generate migration ChangeColumnNameProjects
 rails generate migration ChangeColumnTypeProjects
 #7
 rails generate migration add_columns_to_projects decision_requirements_1:text decision_requirements_2:text decision_requirements_3:text decision_requirements_4:text scope:text obstacles_and_risks:text open_issues:text
-
+#16
+rails generate migration add_descriptionOfObjectives_to_projects description_of_objectives:text
 rake db:reset
 rake db:migrate
 rake db:seed
