@@ -81,6 +81,8 @@
           <div>
             Here should be the complex gantt diagram showing activities.
           </div>
+          <%= f.submit %>
+          <%= link_to 'Cancel', edit_project_path(@project) %>
       <% end %>
     </div>
     <div id="tab-project-resolutions">
@@ -113,6 +115,8 @@
             <%= f.label :open_issues %>
             <%= f.text_area :open_issues %>
           </div>
+          <%= f.submit %>
+          <%= link_to 'Cancel', edit_project_path(@project) %>
           <div id="document_drop_zone">
             <table>
               <% ['rechnung.pdf', 'ausschreibung.doc'].each do |filename| %>
@@ -135,6 +139,8 @@
             <%= f.check_box :compensation %>
           </div>
           Hier fehlt die Tabelle mit den Daten, über Jahre...
+          <%= f.submit %>
+          <%= link_to 'Cancel', edit_project_path(@project) %>
       <% end %>
     </div>
     <div id="tab-project-status">
@@ -143,6 +149,8 @@
             <%= f.label :status_notes %>
             <%= f.text_area :status_notes %>
           </div>
+          <%= f.submit %>
+          <%= link_to 'Cancel', edit_project_path(@project) %>
       <% end %>
     </div>
   </div>
