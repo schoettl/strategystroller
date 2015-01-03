@@ -121,7 +121,7 @@
             <table>
               <% ['rechnung.pdf', 'ausschreibung.doc'].each do |filename| %>
               <tr>
-                <td><%= filename %></td>
+                <td><%= link_to filename, project_document_path(@project, filename) %></td>
               </tr>
               <% end %>
             </table>

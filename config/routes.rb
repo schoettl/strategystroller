@@ -63,9 +63,14 @@ StrategyStroller::Application.routes.draw do
   get "controller_unit/create_users" => "controller_unit#create_users", :as => "create_users"
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
   get "controller_unit/edit_users" => "controller_unit#edit_users", :as => "edit_users"
-  get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project'
-  put 'controller_unit/projects/:id' => 'controller_unit#update_project'
-  post 'controller_unit/projects/:id/documents' => 'controller_unit#create_document'
+
+  # New routes for the main project form:
+  # I tried to name routes and methods as close as possible to the rails conventions
+  # while not breaking the design of this app.
+  get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project', :as => 'edit_project'
+  put 'controller_unit/projects/:id' => 'controller_unit#update_project', :as => 'project'
+  post 'controller_unit/projects/:id/documents' => 'controller_unit#create_document', :as => 'project_documents'
+  get 'controller_unit/projects/:id/documents/:filename' => 'controller_unit#show_document', :as => 'project_document'
 
   ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
 
