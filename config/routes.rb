@@ -63,8 +63,9 @@ StrategyStroller::Application.routes.draw do
   get "controller_unit/create_users" => "controller_unit#create_users", :as => "create_users"
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
   get "controller_unit/edit_users" => "controller_unit#edit_users", :as => "edit_users"
-  get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project', :as => 'edit_project'
-  put 'controller_unit/projects/:id' => 'controller_unit#update_project', :as => 'project'
+  get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project'
+  put 'controller_unit/projects/:id' => 'controller_unit#update_project'
+  post 'controller_unit/projects/:id/documents' => 'controller_unit#create_document'
 
   ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
 
