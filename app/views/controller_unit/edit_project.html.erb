@@ -127,6 +127,10 @@
             </table>
           </div>
       <% end %>
+      <%= form_tag(project_documents_path(@project), :multipart => true) %>
+      <%= submit_tag 'Upload' %>
+      <%= file_field 'document', 'data' %>
+      </form>
     </div>
     <div id="tab-project-calculation">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>

@@ -156,13 +156,15 @@ class ControllerUnitController < ApplicationController
 
   def update_project
     @project = Project.find(params[:id])
-    # Better not direcly access params[:project]
-    # but make private method project_params {params.require(:article).permit(:name, ...)}
     if @project.update_attributes(params[:project]) # Why not update, as in Getting Started?
       redirect_to edit_project_path(@project)
     else
       render 'edit_project'
     end
+  end
+
+  def create_document
+
   end
 
   def applications
