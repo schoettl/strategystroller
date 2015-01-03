@@ -1,10 +1,15 @@
 class Project < ActiveRecord::Base
    belongs_to :customer
-  attr_accessible :actual_cost, :actual_manp, :compensation, :description, :actual_duration, :target_duration,
+  attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
                   :status_manp, :status_ms, :status_notes, :status_prog, :target_cost, :target_manp,
                   :indicator_ids, :head_id, :steer_id, :user_ids, :team, :yearly_target_cost,
-                  :yearly_target_manp, :short_name, :updated_at
+                  :yearly_target_manp, :short_name, :updated_at,
+                  :description_of_objectives,
+                  :decision_requirements_1, :decision_requirements_2, :decision_requirements_3, :decision_requirements_4,
+                  :obstacles_and_risks, :scope, :open_issues,
+                  :mid_term_planning, :is_subproject,
+                  :is_project, :is_strategic_management
 
   serialize :yearly_target_manp, Hash
   serialize :yearly_target_cost, Hash
@@ -46,7 +51,7 @@ class Project < ActiveRecord::Base
   
   ## Description = string[600]
   ## Description can be empty
-  validates :description,
+  validates :management_summary,
   :length => { :maximum => 600 },
   :presence => true
 
