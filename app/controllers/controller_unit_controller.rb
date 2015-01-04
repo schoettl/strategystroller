@@ -164,7 +164,22 @@ class ControllerUnitController < ApplicationController
   end
 
   def create_document
+    project_id = params[:project_id]
 
+    # Dokument anlegen im Projektordner.
+    # Name des Projektordners ist die project_id
+    # Dateiname kann aus dem HTTP-Header X-Filename (oder so ähnlich) entnommen werden.
+
+    # Finally redirect to the edit_project view.
+    # Later, when we upload via Ajax, this redirect is obsolete.
+    redirect_to edit_project_path(project_id)
+  end
+
+  def show_document
+    # Dokument zum Download anbieten, also Dateiinhalt ausgeben
+    # und Dateinamen/MIME type in entsprechenden HTTP Headern setzen.
+    # params[:project_id], params[:filename]
+    raise # Just to show the params on the error page
   end
 
   def applications
