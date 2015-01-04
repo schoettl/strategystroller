@@ -395,4 +395,12 @@ class Project < ActiveRecord::Base
     update_status_ms
   end
 
+  def documents
+    # Hier statt dem fixen array ein arry mit den Dateinamen zurückgeben.
+    # Also alle Dateien, die *direkt* im Projektordner liegen.
+    # Name des Projektordners ist die ID des Projekts, also die Variable: id
+
+    ['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-mluten .txt', "#{id}.txt"]
+  end
+
 end
