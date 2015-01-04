@@ -119,9 +119,9 @@
           <%= link_to 'Cancel', edit_project_path(@project) %>
           <div id="document_drop_zone">
             <table>
-              <% ['rechnung.pdf', 'ausschreibung.doc'].each do |filename| %>
+              <% ['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-ümläuten .txt'].each do |filename| %>
               <tr>
-                <td><%= link_to filename, project_document_path(@project, filename) %></td>
+                <td><%= link_to filename, project_document_path(@project, url_encode(filename)) %></td>
               </tr>
               <% end %>
             </table>
