@@ -30,7 +30,11 @@
         </div>
         <div>
           <%= f.label :head %>
-          <%= f.select :head, options_for_select([['user1', '1'], ['user2', '2']]), {}, {:class => 'chosen-select'} %> <!-- single, selected_value -->
+          <%= f.collection_select(:head, User.all, :id, :name_and_business_code, {}, {:class => 'chosen-select'}) %>
+        </div>
+        <div>
+          <%= f.label :customer %>
+          <%= f.collection_select(:customer, Customer.all, :id, :name) %>
         </div>
         <div>
           <%= f.label :is_strategic_management %>
@@ -42,7 +46,7 @@
         </div>
         <div>
           <%= f.label :indicators %>
-          <%= f.select :indicators, options_for_select([['indicator1', '1']]), {}, {:class => 'chosen-select'} %> <!-- multiple, selected_values -->
+          <%= f.collection_select(:indicators, Indicator.all, :id, :name, {}, {:multiple => 'multiple', :class => 'chosen-select'}) %>
         </div>
         <div>
           <%= f.label :management_summary %>
@@ -119,9 +123,12 @@
           <%= link_to 'Cancel', edit_project_path(@project) %>
           <div id="document_drop_zone">
             <table>
+              <tr>
+                <th>Dokument</th>
+              </tr>
               <% @project.documents.each do |filename| %>
               <tr>
-                <td><%= link_to filename, project_document_path(@project, url_encode(filename)) %></td>
+                <td><%= link_to filename, project_document_path(@project, url_encode(filename)), :target => '_blank' %></td>
               </tr>
               <% end %>
             </table>
