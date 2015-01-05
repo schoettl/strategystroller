@@ -1,0 +1,42 @@
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+* {
+
+}
+
+#tab-project-overview {
+  .column1, .column2 {
+    width: 50%;
+    float: left;
+  }
+  textarea {
+    width: 100%;
+    height: 80px;
+  }
+  label, input[type=text] {
+    float: left;
+  }
+  .column1 label {
+    width: 80px;
+  }
+  div {
+    @extend .clearfix;
+  }
+
+  $input-width: 270px;
+  input[type=text] {
+    width: $input-width - 14px;
+  }
+  select, .chosen-container {
+    width: $input-width;
+  }
+  .chosen-container {
+    margin: 0 0 10px;
+  }
+}
+
