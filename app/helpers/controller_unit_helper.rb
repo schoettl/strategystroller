@@ -43,7 +43,9 @@ module ControllerUnitHelper
   end
 
   def cancel_edit_project_link(activeTabId = nil)
-    link_to 'Cancel', edit_project_path(@project)
+    url = edit_project_path(@project)
+    url << '#' << activeTabId if activeTabId
+    link_to 'Cancel', url
   end
 
 end

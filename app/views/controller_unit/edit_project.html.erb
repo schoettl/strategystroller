@@ -62,7 +62,7 @@
             </div>
         </div>
         <%= f.submit %>
-        <%= cancel_edit_project_link %>
+        <%= cancel_edit_project_link 'tab-project-overview' %>
       <% end %>
     </div>
     <div id="tab-project-planning">
@@ -91,7 +91,7 @@
             Here should be the complex gantt diagram showing activities.
           </div>
           <%= f.submit %>
-          <%= cancel_edit_project_link %>
+          <%= cancel_edit_project_link 'tab-project-planning' %>
       <% end %>
     </div>
     <div id="tab-project-resolutions">
@@ -125,7 +125,7 @@
             <%= f.text_area :open_issues %>
           </div>
           <%= f.submit %>
-          <%= cancel_edit_project_link %>
+          <%= cancel_edit_project_link 'tab-project-resolutions' %>
           <div id="document_drop_zone">
             <table>
               <tr>
@@ -140,8 +140,8 @@
           </div>
       <% end %>
       <%= form_tag(project_documents_path(@project), :multipart => true) %>
-          <%= submit_tag 'Upload' %>
-          <%= file_field 'document', 'data' %>
+      <%= submit_tag 'Upload' %>
+      <%= file_field 'document', 'data' %>
       </form>
     </div>
     <div id="tab-project-calculation">
@@ -156,7 +156,7 @@
           </div>
           Hier fehlt die Tabelle mit den Daten, über Jahre...
           <%= f.submit %>
-          <%= cancel_edit_project_link %>
+          <%= cancel_edit_project_link 'tab-project-calculation' %>
       <% end %>
     </div>
     <div id="tab-project-status">
@@ -166,7 +166,7 @@
             <%= f.text_area :status_notes %>
           </div>
           <%= f.submit %>
-          <%= cancel_edit_project_link %>
+          <%= cancel_edit_project_link 'tab-project-status' %>
       <% end %>
     </div>
   </div>
