@@ -1,0 +1,12 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Projects</a>
+  </div>
+</div>
+<div class="well">
+  <ul>
+    <% Project.all.each do |p| %>
+      <li><%= link_to p.name, edit_project_path(p) %></li>
+    <% end %>
+  </ul>
+</div>

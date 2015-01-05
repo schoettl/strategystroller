@@ -64,6 +64,7 @@ StrategyStroller::Application.routes.draw do
   # New routes for the main project form:
   # I tried to name routes and methods as close as possible to the rails conventions
   # while not breaking the design of this app.
+  get 'controller_unit/projects' => 'controller_unit#index_project', :as => 'index_project'
   get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project', :as => 'edit_project'
   put 'controller_unit/projects/:id' => 'controller_unit#update_project', :as => 'project'
   post 'controller_unit/projects/:project_id/documents' => 'controller_unit#create_document', :as => 'project_documents'
