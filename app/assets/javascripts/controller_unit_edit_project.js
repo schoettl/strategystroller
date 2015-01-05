@@ -28,7 +28,7 @@ $(function() {
 
     var uploadUrl = '../documents';
     var options = {iframe: {url: uploadUrl}}; // relativ -> controller_unit/project/:project_id/documents
-    var zone = new FileDrop('document_drop_zone', options);
+    var zone = new FileDrop('document-drop-zone', options);
 
     zone.event('send', function(files) {
         files.each(function(file) {

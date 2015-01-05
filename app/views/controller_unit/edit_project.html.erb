@@ -67,6 +67,7 @@
     </div>
     <div id="tab-project-planning">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+        <div class="column1">
           <div>
             <%= f.label :startDate %>
             <%= f.text_field :startDate, :class => 'date-field' %>
@@ -78,24 +79,30 @@
           <div>
             <%= f.label :target_manp %>
             <%= f.text_field :target_manp %>
+            <span class="unit">man months</span>
           </div>
           <div>
             <%= f.label :target_cost %>
             <%= f.text_field :target_cost %>
+            <span class="unit">thousands (money)</span>
           </div>
+        </div>
+        <div class="column2">
           <div>
             <%= f.label :notes %>
             <%= f.text_area :notes %>
           </div>
-          <div>
-            Here should be the complex gantt diagram showing activities.
-          </div>
           <%= f.submit %>
           <%= cancel_edit_project_link %>
+        </div>
+        <div>
+          Here should be the complex gantt diagram showing activities.
+        </div>
       <% end %>
     </div>
     <div id="tab-project-resolutions">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+        <div class="column1">
           <div>
             <%= f.label :decision_requirements_1 %>
             <%= f.text_area :decision_requirements_1 %>
@@ -112,6 +119,10 @@
             <%= f.label :decision_requirements_4 %>
             <%= f.text_area :decision_requirements_4 %>
           </div>
+          <%= f.submit %>
+          <%= cancel_edit_project_link %>
+        </div>
+        <div class="column2">
           <div>
             <%= f.label :scope %>
             <%= f.text_area :scope %>
@@ -124,12 +135,10 @@
             <%= f.label :open_issues %>
             <%= f.text_area :open_issues %>
           </div>
-          <%= f.submit %>
-          <%= cancel_edit_project_link %>
-          <div id="document_drop_zone">
+          <div id="document-drop-zone">
             <table>
               <tr>
-                <th>Dokument</th>
+                <th>Document</th>
               </tr>
               <% @project.documents.each do |filename| %>
               <tr>
@@ -138,6 +147,7 @@
               <% end %>
             </table>
           </div>
+        </div>
       <% end %>
       <%= form_tag(project_documents_path(@project), :multipart => true) %>
           <%= submit_tag 'Upload' %>
