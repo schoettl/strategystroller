@@ -470,6 +470,13 @@ class ControllerUnitController < ApplicationController
     @forms = Form.order(sort_column2 + " " + sort_direction)
   end
   
+  def upload_index
+     render :file => 'app/views/controller_unit/uploadfile.html.erb'
+  end
+  def upload_file
+    post = DataFile.save(params[:upload])
+    render :text => "File has been uploaded successfully"
+  end
   ### THE FOLLOWING ARE JUST HELPER METHODS ###
   
   private # Note at the top of this file
@@ -493,5 +500,6 @@ class ControllerUnitController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+  
   
 end

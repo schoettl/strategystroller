@@ -50,12 +50,15 @@ StrategyStroller::Application.routes.draw do
   match "provider/home" => "provider#forms_composite", :as => "forms_composite"
   match "provider/update" => "provider#forms_composite_update", :as => "forms_composite_update"
   match "provider/activity_edit" => "provider#activity_edit", :as => 'activity_edit'
+  match "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
 
   #applications path currently defaults to setup_system path so really we only need
   #first 'post' route below, but including all 'post' paths to be safe/in case we need them
   post "controller_unit/setup_system" => "controller_unit#applications", :as => "applications"
   post "controller_unit/create_users" => "controller_unit#applications"
   post "controller_unit/remove_users" => "controller_unit#applications"
+  post "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
+  post "controller_unit/upload_file"=> "controller_unit#upload_file" , :as => "upload_file"
   get "controller_unit/setup_system" => "controller_unit#setup_system", :as => "setup_system"
   get "controller_unit/create_users" => "controller_unit#create_users", :as => "create_users"
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
@@ -70,5 +73,61 @@ StrategyStroller::Application.routes.draw do
   post 'controller_unit/projects/:project_id/documents' => 'controller_unit#create_document', :as => 'project_documents'
   get 'controller_unit/projects/:project_id/documents/:filename' => 'controller_unit#show_document', :as => 'project_document',
       :filename => /[\w\-.~%]+/ # Filename will be URL encoded. Only allow unreserved characters (RFC 3986 section 2.3) and percent character.
+
+  get "controller_unit/upload_index"=> "controller_unit#upload_index" , :as => "upload_index"
+  get "controller_unit/upload_file"=> "controller_unit#upload_file" , :as => "upload_file"
+  ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+
+  # Sample of regular route:
+  #   match 'products/:id' => 'catalog#view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   resources :products
+
+  # Sample resource route with options:
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
+
+  # Sample resource route with sub-resources:
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
+  # Sample resource route with more complex sub-resources
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
+  #   end
+
+  # Sample resource route within a namespace:
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => 'welcome#index'
+  # See how all your routes lay out with "rake routes"
 
 end
