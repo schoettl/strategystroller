@@ -82,11 +82,6 @@ ActiveRecord::Schema.define(:version => 20150102123556) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "data_files", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "dimensions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -180,8 +175,6 @@ ActiveRecord::Schema.define(:version => 20150102123556) do
     t.decimal  "status_global"
     t.integer  "target_duration"
     t.integer  "actual_duration"
-    t.integer  "yearly_target_cost"
-    t.integer  "yearly_target_manp"
     t.decimal  "status_manp"
     t.text     "status_ms"
     t.boolean  "is_project"
@@ -196,6 +189,8 @@ ActiveRecord::Schema.define(:version => 20150102123556) do
     t.text     "obstacles_and_risks"
     t.text     "open_issues"
     t.text     "description_of_objectives"
+    t.text     "yearly_target_cost"
+    t.text     "yearly_target_manp"
   end
 
   create_table "users", :force => true do |t|
