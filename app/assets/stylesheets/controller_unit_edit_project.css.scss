@@ -99,6 +99,18 @@ table th {
   div {
     @extend .clearfix
   }
+
+  /* Styles for table */
+  tr > th {
+    padding-bottom: 1em;
+  }
+  tr.sub-total > td {
+    font-weight: bold;
+  }
+  tr.total > td {
+    font-weight: bolder;
+    padding-bottom: 1em;
+  }
 }
 
 #tab-project-status {

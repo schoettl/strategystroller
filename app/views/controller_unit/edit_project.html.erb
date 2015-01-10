@@ -84,14 +84,14 @@
             <%= f.text_field :target_cost %>
             <span class="unit">thousands (money)</span>
           </div>
+          <%= f.submit %>
+          <%= cancel_edit_project_link %>
         </div>
         <div class="column2">
           <div>
             <%= f.label :notes %>
             <%= f.text_area :notes %>
           </div>
-          <%= f.submit %>
-          <%= cancel_edit_project_link %>
         </div>
         <div>
           Here should be the complex gantt diagram showing activities.
