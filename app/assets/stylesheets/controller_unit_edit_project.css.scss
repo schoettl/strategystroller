@@ -20,6 +20,14 @@ h2 {
   font-size: 1.2em;
 }
 
+table {
+  width: 100%;
+  margin: 0 0 10px;
+}
+table th {
+  text-align: left;
+}
+
 #tab-project-overview {
   .column1, .column2 {
     width: 50%;
@@ -94,13 +102,6 @@ h2 {
 }
 
 #tab-project-status {
-  table {
-    width: 100%;
-    margin: 0 0 10px;
-  }
-  table th {
-    text-align: left;
-  }
   .signal-light {
     $signal-diameter: 20px;
     display: inline-block;

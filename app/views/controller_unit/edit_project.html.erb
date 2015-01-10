@@ -162,15 +162,31 @@
             <%= f.label :compensation %>
             <%= f.check_box :compensation %>
           </div>
-          Hier fehlt die Tabelle mit den Daten, über Jahre...
           <%= f.submit %>
           <%= cancel_edit_project_link %>
+          <h2>Wirtschaftlichkeitsrechnung</h2>
+          <table>
+            <tr>
+              <th></th>
+              <% @project.next_years.each do |y| %>
+              <th><%= y %></th>
+              <% end %>
+            </tr>
+            <% @project.calculation_data.each do |d| %>
+            <%= calculation_row d[:row_type] %>
+              <td><%= d[:text] %></td>
+              <% d[:values].each do |v| %>
+                  <td><%= v %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </table>
       <% end %>
     </div>
     <div id="tab-project-status">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
           <div>
-            <h2>Status monitoring for <%#= current year %></h2>
+            <h2>Status monitoring for <%= @project.next_years.first %></h2>
             <table>
               <tr>
                 <th>Project data</th>

@@ -5,6 +5,10 @@ class Project < ActiveRecord::Base
   STATUS_DELAYED = 'delayed'
   STATUS_CRITICAL = 'critical'
 
+  CALCULATION_ROW_NORMAL = 1
+  CALCULATION_ROW_SUB_TOTAL = 2
+  CALCULATION_ROW_TOTAL = 3
+
    belongs_to :customer
   attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
@@ -416,6 +420,38 @@ class Project < ActiveRecord::Base
       {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => STATUS_CRITICAL, :gsi => true},
       {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => STATUS_DELAYED, :gsi => true},
       {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => STATUS_ON_TIME, :gsi => false}
+    ]
+  end
+
+  # Return arry with current year to current year + ...
+  def next_years
+    current_year = Time.now.year
+    current_year..(current_year + 4)
+  end
+
+  def calculation_data
+    # Return this data from the model:
+    # :values is array with numbers as in table on tab 4 (calculation)
+    [
+      {:text => 'Umsatz', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => '-Fahrgeld', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => 'sonstige betriebliche Ertraege', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
+      {:text => 'Summe Ertraege', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
+      {:text => 'Materialaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Stationsentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Trassenentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Aufwand Energie (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil sonstiger Materialaufwand (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => 'Personalaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Abschreibungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'sonstige betriebliche Aufwendungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Summe Aufwand', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Wirkung Betriebsergebnis', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Investition', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
     ]
   end
 
