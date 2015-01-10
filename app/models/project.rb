@@ -1,4 +1,10 @@
 class Project < ActiveRecord::Base
+
+  # Status indicators for status monitoring
+  STATUS_ON_TIME = 'on-time'
+  STATUS_DELAYED = 'delayed'
+  STATUS_CRITICAL = 'critical'
+
    belongs_to :customer
   attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
@@ -401,6 +407,16 @@ class Project < ActiveRecord::Base
     # Name des Projektordners ist die ID des Projekts, also die Variable: id
 
     ['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-mluten .txt', "#{id}.txt"]
+  end
+
+  def status_data
+    # Return this data from the model:
+    [
+      {:text => 'Duration [d]', :target => 0, :current => 0, :progress => 50, :status => STATUS_ON_TIME, :gsi => true},
+      {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => STATUS_CRITICAL, :gsi => true},
+      {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => STATUS_DELAYED, :gsi => true},
+      {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => STATUS_ON_TIME, :gsi => false}
+    ]
   end
 
 end

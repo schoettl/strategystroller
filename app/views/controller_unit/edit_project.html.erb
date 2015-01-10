@@ -180,11 +180,7 @@
                 <th>Status</th>
                 <th>GSI?</th>
               </tr>
-              <% [{:text => 'Duration [d]', :target => 0, :current => 0, :progress => 50, :status => 'on-time', :gsi => true},
-                  {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => 'critical', :gsi => true},
-                  {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => 'delayed', :gsi => true},
-                  {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => 'on-time', :gsi => false}
-                 ].each do |d| %>
+              <% @project.status_data.each do |d| %>
               <tr>
                 <td><%= d[:text] %></td>
                 <td><%= d[:target] %></td>
