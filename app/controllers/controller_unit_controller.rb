@@ -182,9 +182,9 @@ class ControllerUnitController < ApplicationController
     # und Dateinamen/MIME type in entsprechenden HTTP Headern setzen.
     # params[:project_id], params[:filename]
     project_id = params[:project_id]
-    DataFile.show(params[project_id])
+    DataFile.show_document(params[:project_id], params[:filename])
     
-    raise # Just to show the params on the error page
+    #raise # Just to show the params on the error page
   end
 
   def applications

@@ -409,8 +409,10 @@ class Project < ActiveRecord::Base
     # Hier statt dem fixen array ein arry mit den Dateinamen zurückgeben.
     # Also alle Dateien, die *direkt* im Projektordner liegen.
     # Name des Projektordners ist die ID des Projekts, also die Variable: id
+    
+    DataFile.documents(id)
 
-    ['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-mluten .txt', "#{id}.txt"]
+    #['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-mluten .txt', "#{id}.txt"]
   end
 
   def status_data
