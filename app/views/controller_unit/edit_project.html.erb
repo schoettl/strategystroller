@@ -185,6 +185,8 @@
     </div>
     <div id="tab-project-status">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <%# This data is used in the JavaScript: %>
+          <%= tag :div, {id: 'updates-requested', data: {'flag' => @project.updates_requested}}, open: true %></div>
           <div>
             <h2>Status monitoring for <%= @project.next_years.first %></h2>
             <table>

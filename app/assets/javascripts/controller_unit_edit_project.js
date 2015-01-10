@@ -6,7 +6,7 @@ var TAB_PROJECT_STATUS = 4;
 $(function() {
 
     $('#tabs').tabs({
-        //disabled: [TAB_PROJECT_RESOLUTIONS, TAB_PROJECT_CALCULATION, TAB_PROJECT_STATUS] // TODO this line should be NO comment in production!
+        disabled: [TAB_PROJECT_RESOLUTIONS, TAB_PROJECT_CALCULATION, TAB_PROJECT_STATUS] // TODO this line should be NO comment in production!
     });
 
     $('.date-field').datepicker({
@@ -26,7 +26,7 @@ function enableAppropriateTabs() {
     if ($('#project_is_project').prop('checked')) {
         enableProjectTabs(true);
     }
-    if (true) { // TODO Only when request for updates...
+    if ($('#updates-requested').data('flag')) {
         $('#tabs').tabs('enable', TAB_PROJECT_STATUS);
     }
 }

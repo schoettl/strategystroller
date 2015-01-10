@@ -54,7 +54,7 @@ module ControllerUnitHelper
               when Project::CALCULATION_ROW_SUB_TOTAL then 'sub-total'
               else ''
               end
-    tag :tr, open: true, class: classes
+    tag :tr, {class: classes}, open: true
   end
 
 end
