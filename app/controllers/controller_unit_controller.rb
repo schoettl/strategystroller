@@ -165,20 +165,25 @@ class ControllerUnitController < ApplicationController
 
   def create_document
     project_id = params[:project_id]
-
-    # Dokument anlegen im Projektordner.
-    # Name des Projektordners ist die project_id
-    # Dateiname kann aus dem HTTP-Header X-Filename (oder so ähnlich) entnommen werden.
-
-    # Finally redirect to the edit_project view.
-    # Later, when we upload via Ajax, this redirect is obsolete.
-    redirect_to edit_project_path(project_id)
+    unless params[:document].nil?
+      # Dokument anlegen im Projektordner.
+      # Name des Projektordners ist die project_id
+      # Dateiname kann aus dem HTTP-Header X-Filename (oder so ähnlich) entnommen werden.
+      post = DataFile.save(params[:document],project_id)
+    end
+      # Finally redirect to the edit_project view.
+      # Later, when we upload via Ajax, this redirect is obsolete.
+      redirect_to edit_project_path(project_id)
+    
   end
 
   def show_document
     # Dokument zum Download anbieten, also Dateiinhalt ausgeben
     # und Dateinamen/MIME type in entsprechenden HTTP Headern setzen.
     # params[:project_id], params[:filename]
+    project_id = params[:project_id]
+    DataFile.show(params[project_id)
+    
     raise # Just to show the params on the error page
   end
 
@@ -474,7 +479,7 @@ class ControllerUnitController < ApplicationController
      render :file => 'app/views/controller_unit/uploadfile.html.erb'
   end
   def upload_file
-    post = DataFile.save(params[:upload])
+    post = DataFile.save(params[:upload],'TestXXX')
     render :text => "File has been uploaded successfully"
   end
   ### THE FOLLOWING ARE JUST HELPER METHODS ###
