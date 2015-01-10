@@ -172,6 +172,39 @@
     <div id="tab-project-status">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
           <div>
+            <h2>Status monitoring for <%#= current year %></h2>
+            <table>
+              <tr>
+                <th>Project data</th>
+                <th>Target</th>
+                <th>Current</th>
+                <th>Progress</th>
+                <th>Status</th>
+                <th>GSI?</th>
+              </tr>
+              <% [{:text => 'Duration [d]', :target => 0, :current => 0, :progress => 50, :status => 'on-time', :gsi => true},
+                  {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => 'critical', :gsi => true},
+                  {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => 'delayed', :gsi => true},
+                  {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => 'on-time', :gsi => false}
+                 ].each do |d| %>
+              <tr>
+                <td><%= d[:text] %></td>
+                <td><%= d[:target] %></td>
+                <td><%= d[:current] %></td>
+                <td>
+                  <progress max="100" value="<%=h d[:progress] %>">
+                    <strong>Progress: <%= d[:progress] %> percent done</strong>
+                  </progress>
+                </td>
+                <td>
+                  <div class="signal-light <%=h d[:status] %>"></div>
+                </td>
+                <td><input type="checkbox" disabled <%= 'checked' if d[:gsi] %>><%#= check_box_tag nil, nil, d[:gsi], disabled: true %></td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+          <div>
             <%= f.label :status_notes %>
             <%= f.text_area :status_notes %>
           </div>
