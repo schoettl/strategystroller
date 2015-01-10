@@ -10,9 +10,6 @@ StrategyStroller::Application.routes.draw do
   ## FOR ACTIVE ADMIN
   ActiveAdmin.routes(self)
 
-
-  #get "admin/setup_system" => "admin#setup_system", :as => "asetup_system"
-
   ## FOR DEVISE
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
@@ -64,61 +61,14 @@ StrategyStroller::Application.routes.draw do
   get "controller_unit/remove_users" => "controller_unit#remove_users", :as => "remove_users"
   get "controller_unit/edit_users" => "controller_unit#edit_users", :as => "edit_users"
 
-  ### IGNORE RAILS AUTO GENERATED STUFF BELOW ###
+  # New routes for the main project form:
+  # I tried to name routes and methods as close as possible to the rails conventions
+  # while not breaking the design of this app.
+  get 'controller_unit/projects' => 'controller_unit#index_project', :as => 'index_project'
+  get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project', :as => 'edit_project'
+  put 'controller_unit/projects/:id' => 'controller_unit#update_project', :as => 'project'
+  post 'controller_unit/projects/:project_id/documents' => 'controller_unit#create_document', :as => 'project_documents'
+  get 'controller_unit/projects/:project_id/documents/:filename' => 'controller_unit#show_document', :as => 'project_document',
+      :filename => /[\w\-.~%]+/ # Filename will be URL encoded. Only allow unreserved characters (RFC 3986 section 2.3) and percent character.
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

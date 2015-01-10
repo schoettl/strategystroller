@@ -13,11 +13,14 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/dropdown
 //= require twitter/bootstrap/tooltip
 //= require twitter/bootstrap/popover
+//= require bootstrap-datepicker
+//= require chosen.jquery
 //= require cocoon
 //= require_directory .
 

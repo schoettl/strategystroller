@@ -10,6 +10,8 @@
  *
  *= require formtastic-bootstrap
  *= require twitter/bootstrap
+ *= require bootstrap-datepicker
+ *= require chosen
  *= require_self
  *= require_directory .
  */

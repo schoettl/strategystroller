@@ -42,4 +42,17 @@ module ControllerUnitHelper
     end
   end
 
+  def cancel_edit_project_link(activeTabId = nil)
+    link_to 'Cancel', edit_project_path(@project)
+  end
+
+  def calculation_row(row_type)
+    classes = case row_type
+              when Project::CALCULATION_ROW_TOTAL then 'total'
+              when Project::CALCULATION_ROW_SUB_TOTAL then 'sub-total'
+              else ''
+              end
+    tag :tr, open: true, class: classes
+  end
+
 end

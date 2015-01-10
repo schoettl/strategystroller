@@ -150,6 +150,38 @@ class ControllerUnitController < ApplicationController
     end
   end
 
+  def edit_project
+    @project = Project.find(params[:id])
+  end
+
+  def update_project
+    @project = Project.find(params[:id])
+    if @project.update_attributes(params[:project]) # Why not update, as in Getting Started?
+      redirect_to edit_project_path(@project)
+    else
+      render 'edit_project'
+    end
+  end
+
+  def create_document
+    project_id = params[:project_id]
+
+    # Dokument anlegen im Projektordner.
+    # Name des Projektordners ist die project_id
+    # Dateiname kann aus dem HTTP-Header X-Filename (oder so ähnlich) entnommen werden.
+
+    # Finally redirect to the edit_project view.
+    # Later, when we upload via Ajax, this redirect is obsolete.
+    redirect_to edit_project_path(project_id)
+  end
+
+  def show_document
+    # Dokument zum Download anbieten, also Dateiinhalt ausgeben
+    # und Dateinamen/MIME type in entsprechenden HTTP Headern setzen.
+    # params[:project_id], params[:filename]
+    raise # Just to show the params on the error page
+  end
+
   def applications
     @application = Application.new
     if (request.post?)

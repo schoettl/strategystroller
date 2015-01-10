@@ -35,5 +35,11 @@ class User < ActiveRecord::Base
 
   ## Controlling Unit = true / false = yes / no
   validates :controlling_unit, :inclusion => { :in => [true, false] }
+
+  def name_and_business_code
+    # Leave a space before business_code because otherwise
+    # cannot search for business_code in the jQuery Chosen select!
+    "#{username} ( #{business_code} )"
+  end
   
 end

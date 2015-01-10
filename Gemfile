@@ -27,6 +27,7 @@ gem 'coffee-script-source', '~> 1.4.0'
 #Twitter Bootstrap
 #gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'formtastic-bootstrap'
 gem 'tabulous', '1.3.2'
@@ -65,6 +66,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

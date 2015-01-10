@@ -16,6 +16,10 @@ AdminUser.create(
     :password_confirmation => 'password'
 )
 
+### Customer
+Customer.create(:name => "Konzern")
+Customer.create(:name => "Gesch\u00e4ftsleitung")
+
 ### DIMENSIONS
 Dimension.create(:name=>"Financial",:status=>0.0)
 Dimension.create(:name=>"Customer",:status=>0.0)

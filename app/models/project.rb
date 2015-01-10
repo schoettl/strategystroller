@@ -1,10 +1,25 @@
 class Project < ActiveRecord::Base
+
+  # Status indicators for status monitoring
+  STATUS_ON_TIME = 'on-time'
+  STATUS_DELAYED = 'delayed'
+  STATUS_CRITICAL = 'critical'
+
+  CALCULATION_ROW_NORMAL = 1
+  CALCULATION_ROW_SUB_TOTAL = 2
+  CALCULATION_ROW_TOTAL = 3
+
    belongs_to :customer
   attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
                   :status_manp, :status_ms, :status_notes, :status_prog, :target_cost, :target_manp,
                   :indicator_ids, :head_id, :steer_id, :user_ids, :team, :yearly_target_cost,
-                  :yearly_target_manp, :short_name, :updated_at
+                  :yearly_target_manp, :short_name, :updated_at,
+                  :description_of_objectives,
+                  :decision_requirements_1, :decision_requirements_2, :decision_requirements_3, :decision_requirements_4,
+                  :obstacles_and_risks, :scope, :open_issues,
+                  :mid_term_planning, :is_subproject,
+                  :is_project, :is_strategic_management
 
   serialize :yearly_target_manp, Hash
   serialize :yearly_target_cost, Hash
@@ -388,6 +403,56 @@ class Project < ActiveRecord::Base
     update_status_manp
     update_status_prog
     update_status_ms
+  end
+
+  def documents
+    # Hier statt dem fixen array ein arry mit den Dateinamen zurückgeben.
+    # Also alle Dateien, die *direkt* im Projektordner liegen.
+    # Name des Projektordners ist die ID des Projekts, also die Variable: id
+
+    ['rechnung.pdf', 'ausschreibung.doc', 'e1ne datei_name.mit-mluten .txt', "#{id}.txt"]
+  end
+
+  def status_data
+    # Return this data from the model:
+    [
+      {:text => 'Duration [d]', :target => 0, :current => 0, :progress => 50, :status => STATUS_ON_TIME, :gsi => true},
+      {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => STATUS_CRITICAL, :gsi => true},
+      {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => STATUS_DELAYED, :gsi => true},
+      {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => STATUS_ON_TIME, :gsi => false}
+    ]
+  end
+
+  # Return arry with current year to current year + ...
+  def next_years
+    current_year = Time.now.year
+    current_year..(current_year + 4)
+  end
+
+  def calculation_data
+    # Return this data from the model:
+    # :values is array with numbers as in table on tab 4 (calculation)
+    [
+      {:text => 'Umsatz', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => '-Fahrgeld', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => 'sonstige betriebliche Ertraege', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
+      {:text => 'Summe Ertraege', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
+      {:text => 'Materialaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Stationsentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Trassenentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil Aufwand Energie (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => '-Anteil sonstiger Materialaufwand (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => 'Personalaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Abschreibungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'sonstige betriebliche Aufwendungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Summe Aufwand', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Wirkung Betriebsergebnis', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+      {:text => 'Investition', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+    ]
   end
 
 end

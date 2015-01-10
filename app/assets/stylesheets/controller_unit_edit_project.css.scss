@@ -1,0 +1,122 @@
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+span.unit {
+  margin: 0 0 0 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+}
+
+/* Subtitles on tabs */
+h2 {
+  font-size: 1.2em;
+}
+
+table {
+  width: 100%;
+  margin: 0 0 10px;
+}
+table th {
+  text-align: left;
+}
+
+#tab-project-overview {
+  .column1, .column2 {
+    width: 50%;
+    float: left;
+  }
+
+  label, input[type=text], input[type=checkbox], span.unit {
+    float: left;
+  }
+  .column1 label {
+    width: 80px;
+  }
+  div {
+    @extend .clearfix;
+  }
+
+  $input-width: 270px;
+  input[type=text] {
+    width: $input-width - 14px;
+  }
+  select, .chosen-container {
+    width: $input-width;
+  }
+  .chosen-container {
+    margin: 0 0 10px;
+  }
+}
+
+#tab-project-planning {
+  .column1, .column2 {
+    width: 50%;
+    float: left;
+  }
+  .column1 input[type=text] {
+    width: 90px;
+  }
+  .date-field {
+    width: 90px;
+  }
+  label, input[type=text], input[type=checkbox] {
+    float: left;
+  }
+  .column1 label {
+    width: 100px;
+  }
+  div {
+    @extend .clearfix;
+  }
+
+}
+
+#tab-project-resolutions {
+  .column1, .column2 {
+    width: 50%;
+    float: left;
+  }
+  textarea {
+    width: 90%;
+  }
+}
+
+#tab-project-calculation {
+  label, input[type=checkbox] {
+    float: left;
+  }
+  label {
+    width: 100px;
+  }
+  div {
+    @extend .clearfix
+  }
+}
+
+#tab-project-status {
+  .signal-light {
+    $signal-diameter: 20px;
+    display: inline-block;
+    width: $signal-diameter;
+    height: $signal-diameter;
+    border-radius: $signal-diameter / 2;
+    background-color: #000;
+  }
+  .signal-light.on-time {
+    background-color: #0f0;
+  }
+  .signal-light.delayed {
+    background-color: #ff0;
+  }
+    .signal-light.critical {
+    background-color: #f00;
+  }
+}
