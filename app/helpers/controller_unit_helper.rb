@@ -42,8 +42,10 @@ module ControllerUnitHelper
     end
   end
 
-  def cancel_edit_project_link(activeTabId = nil)
-    link_to 'Cancel', edit_project_path(@project)
+  def cancel_edit_project_link(active_tab_id = nil)
+    url_options = active_tab_id ? {:anchor => active_tab_id} : {}
+    url = edit_project_path(@project, url_options)
+    link_to 'Cancel', url, :data => {:no_turbolink => true}
   end
 
   def calculation_row(row_type)
