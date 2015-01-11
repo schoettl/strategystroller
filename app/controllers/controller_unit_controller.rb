@@ -169,7 +169,8 @@ class ControllerUnitController < ApplicationController
     unless params[:document].nil?
       # Dokument anlegen im Projektordner.
       # Name des Projektordners ist die project_id
-      DataFile.save(params[:document], project_id)
+      upload = params[:document][:data]
+      Document.save(upload, project_id)
     end
 
     # Finally redirect to the edit_project view.
