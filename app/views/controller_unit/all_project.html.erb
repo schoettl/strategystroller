@@ -39,7 +39,7 @@
 
 	<div class="row-fluid">
 		<div class="span6">
-			<%= f.input :description, :input_html => { :value => @project.description, :readonly => true, :class => "span12", :rows => 5 }, :label => (I18n.t :project_description) %>
+			<%= f.input :management_summary, :input_html => { :value => @project.management_summary, :readonly => true, :class => "span12", :rows => 5 }, :label => (I18n.t :project_description) %>
 		</div>
 		<div class="span6">
 			<%= f.input :startDate, :input_html => { :value => @project.startDate, :disabled => true, :class => "span4" }, :label => (I18n.t :starting_date) %>
