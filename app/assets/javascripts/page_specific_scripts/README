@@ -1,0 +1,6 @@
+Put page-specific files (that you include with
+javascript_include_tag or stylesheet_link_tag)
+in this folder.
+
+This is because of the "=require_directory ." directive
+in ../application.*
