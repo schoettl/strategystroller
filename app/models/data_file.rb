@@ -1,5 +1,7 @@
 class DataFile < ActiveRecord::Base
-   PATH="/public/data/"
+
+   PATH = '/public/data/'
+
    def self.save(upload,project_id)
     Rails.logger = Logger.new(STDOUT)
     name =upload['data'].original_filename
@@ -15,9 +17,8 @@ class DataFile < ActiveRecord::Base
   end
   
   def self.documents(project_id)
-    path = File.join( Rails.root,PATH)
-    path = File.join( path,project_id.to_s)
-    Dir.glob(path+"/*")
+    path = File.join(Rails.root, PATH, project_id.to_s)
+    Dir.entries(path).reject { |f| File.directory? f}
   end
 
   def self.show_document(project_id,filename)
@@ -33,6 +34,7 @@ class DataFile < ActiveRecord::Base
     logger.info "Dir.glob(path)"
     File.open(filename, "r")
   end
+
   def sanitize_filename(filename)
     filename.strip.tap do |name|
       # NOTE: File.basename doesn't work right with Windows paths on Unix
