@@ -42,7 +42,7 @@ module ControllerUnitHelper
     end
   end
 
-  def cancel_edit_project_link(activeTabId = nil)
+  def cancel_edit_project_link
     link_to 'Cancel', edit_project_path(@project)
   end
 
@@ -52,7 +52,7 @@ module ControllerUnitHelper
               when Project::CALCULATION_ROW_SUB_TOTAL then 'sub-total'
               else ''
               end
-    tag :tr, open: true, class: classes
+    tag :tr, {class: classes}, open: true
   end
 
 end

@@ -457,4 +457,12 @@ class Project < ActiveRecord::Base
     ]
   end
 
+  def updates_requested
+    # Aus Anforderungen:
+    # > Reiter 5: Angaben zum Status (nur aktiv, wenn Anforderung zur Aktualisierung eingegangen ist)
+    # Das soll diese Methode wiedergeben.
+    # TODO implement
+    true
+  end
+
 end

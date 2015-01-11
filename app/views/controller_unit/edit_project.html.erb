@@ -90,9 +90,9 @@
             <%= f.label :notes %>
             <%= f.text_area :notes %>
           </div>
-          <%= f.submit %>
-          <%= cancel_edit_project_link %>
         </div>
+        <%= f.submit %>
+        <%= cancel_edit_project_link %>
         <div>
           Here should be the complex gantt diagram showing activities.
         </div>
@@ -133,10 +133,10 @@
             <%= f.label :open_issues %>
             <%= f.text_area :open_issues %>
           </div>
-          <div id="document-drop-zone">
+          <div>
             <table>
               <tr>
-                <th>Document</th>
+                <th>Documents</th>
               </tr>
               <% @project.documents.each do |filename| %>
               <tr>
@@ -185,6 +185,8 @@
     </div>
     <div id="tab-project-status">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
+          <%# This data is used in the JavaScript: %>
+          <%= tag :div, {id: 'updates-requested', data: {'flag' => @project.updates_requested}}, open: true %></div>
           <div>
             <h2>Status monitoring for <%= @project.next_years.first %></h2>
             <table>
