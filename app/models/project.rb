@@ -406,7 +406,7 @@ class Project < ActiveRecord::Base
   end
 
   def documents
-    DataFile.documents(id)
+    Document.list(id)
   end
 
   def status_data
