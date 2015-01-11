@@ -2,23 +2,17 @@ class DataFile < ActiveRecord::Base
 
    PATH = '/public/data/'
 
-   def self.save(upload,project_id)
-    Rails.logger = Logger.new(STDOUT)
-    name =upload['data'].original_filename
-    # create the file path
-    path = File.join( Rails.root,PATH)
-    path = File.join( path,project_id)
-    path = File.join(path, name)
-    logger.info " path = File.join(path, name)"
-    # crate path
+   def self.save(upload, project_id)
+    filename = upload['data'].original_filename
+    # TODO Validate filename and project_id: no relative paths, no directory separators
+    path = File.join(Rails.root, PATH, project_id, filename)
     FileUtils.mkdir_p File.dirname(path)
-    # write the file
-    File.open(path, "wb") { |f| f.write(upload['data'].read) }
+    File.open(path, 'wb') { |f| f.write(upload['data'].read) }
   end
   
   def self.documents(project_id)
     path = File.join(Rails.root, PATH, project_id.to_s)
-    Dir.entries(path).reject { |f| File.directory? f}
+    Dir.entries(path).reject { |f| File.directory? f }
   end
 
   def self.show_document(project_id,filename)

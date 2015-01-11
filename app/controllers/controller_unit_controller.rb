@@ -474,14 +474,8 @@ class ControllerUnitController < ApplicationController
     @user = current_user
     @forms = Form.order(sort_column2 + " " + sort_direction)
   end
+
   
-  def upload_index
-     render :file => 'app/views/controller_unit/uploadfile.html.erb'
-  end
-  def upload_file
-    post = DataFile.save(params[:upload],'TestXXX')
-    render :text => "File has been uploaded successfully"
-  end
   ### THE FOLLOWING ARE JUST HELPER METHODS ###
   
   private # Note at the top of this file
