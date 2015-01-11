@@ -6,7 +6,7 @@ var TAB_PROJECT_STATUS = 4;
 $(function() {
 
     $('#tabs').tabs({
-        disabled: [TAB_PROJECT_RESOLUTIONS, TAB_PROJECT_CALCULATION, TAB_PROJECT_STATUS] // TODO this line should be NO comment in production!
+        disabled: [TAB_PROJECT_RESOLUTIONS, TAB_PROJECT_CALCULATION, TAB_PROJECT_STATUS]
     });
 
     $('.date-field').datepicker({

@@ -475,7 +475,7 @@ class ControllerUnitController < ApplicationController
     @forms = Form.order(sort_column2 + " " + sort_direction)
   end
 
-  
+
   ### THE FOLLOWING ARE JUST HELPER METHODS ###
   
   private # Note at the top of this file
