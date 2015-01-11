@@ -4,8 +4,8 @@ class Document
   PUBLIC_PATH = '/public'
 
   def self.save(upload, project_id)
-    filename = upload.original_filename
-    # TODO Validate filename and project_id: no relative paths, no directory separators
+    filename = File.basename upload.original_filename
+    raise if %w(. ..).include? filename
     path = File.join(document_folder_path(project_id), filename)
     FileUtils.mkdir_p File.dirname(path)
     File.open(path, 'wb') { |f| f.write(upload.read) }
