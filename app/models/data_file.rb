@@ -4,7 +4,7 @@ class DataFile < ActiveRecord::Base
 
    def self.save(upload,project_id)
     Rails.logger = Logger.new(STDOUT)
-    name =upload['data'].original_filename
+    name =sanitize_filename(upload['data'].original_filename)
     # create the file path
     path = File.join( Rails.root,PATH)
     path = File.join( path,project_id)
@@ -35,7 +35,7 @@ class DataFile < ActiveRecord::Base
     File.open(filename, "r")
   end
 
-  def sanitize_filename(filename)
+  def self.sanitize_filename(filename)
     filename.strip.tap do |name|
       # NOTE: File.basename doesn't work right with Windows paths on Unix
       # get only the filename, not the whole path

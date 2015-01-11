@@ -412,10 +412,15 @@ class Project < ActiveRecord::Base
   def status_data
     # Return this data from the model:
     [
-      {:text => 'Duration [d]', :target => 0, :current => 0, :progress => 50, :status => STATUS_ON_TIME, :gsi => true},
-      {:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => STATUS_CRITICAL, :gsi => true},
-      {:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => STATUS_DELAYED, :gsi => true},
-      {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => STATUS_ON_TIME, :gsi => false}
+      #{:text => 'Duration [d]', :target => target_duration, :current => actual_duration, :progress => status_prog , :status => STATUS_ON_TIME, :gsi => true},
+      #{:text => 'Manpower [MM]', :target => 0, :current => 0, :progress => 100, :status => STATUS_CRITICAL, :gsi => true},
+      #{:text => 'Cost [thousands (money)]', :target => 0, :current => 0, :progress => 75, :status => STATUS_DELAYED, :gsi => true},
+      #{:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => STATUS_ON_TIME, :gsi => false}
+      
+      {:text => 'Duration [d]', :target => target_duration, :current => actual_duration, :progress => ((actual_duration/target_duration)*100) , :status =>STATUS_ON_TIME , :gsi => true},
+      {:text => 'Manpower [MM]', :target => target_manp, :current => yearly_target_manp, :progress => ((target_manp/target_manp)*100), :status => status_manp, :gsi => true},
+      {:text => 'Cost [thousands (money)]', :target => target_cost, :current => actual_cost, :progress => 75, :status => status_cost, :gsi => true},
+      {:text => 'Milestones', :target => 0, :current => 0, :progress => 0, :status => status_cost, :gsi => false}
     ]
   end
 

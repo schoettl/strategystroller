@@ -182,7 +182,9 @@ class ControllerUnitController < ApplicationController
     # und Dateinamen/MIME type in entsprechenden HTTP Headern setzen.
     # params[:project_id], params[:filename]
     project_id = params[:project_id]
-    DataFile.show_document(params[:project_id], params[:filename])
+    if (project_id.to_i.to_s == project_id) # prüfung auf numerisch
+      DataFile.show_document(params[:project_id], params[:filename])
+    end
     
     #raise # Just to show the params on the error page
   end
