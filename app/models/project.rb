@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
                   :decision_requirements_1, :decision_requirements_2, :decision_requirements_3, :decision_requirements_4,
                   :obstacles_and_risks, :scope, :open_issues,
                   :mid_term_planning, :is_subproject,
-                  :is_project, :is_strategic_management
+                  :is_project, :is_strategic
 
   serialize :yearly_target_manp, Hash
   serialize :yearly_target_cost, Hash
