@@ -40,7 +40,7 @@
 
 	<div class="row-fluid">
 		<div class="span6">
-			<%= f.input :description, :as => :text, :input_html => { :value => @current_project.description, :rows => 5, :cols => 10, :class => "span12" }, :required => true, :label => (I18n.t :project_description) %>
+			<%= f.input :management_summary, :as => :text, :input_html => { :value => @current_project.management_summary, :rows => 5, :cols => 10, :class => "span12" }, :required => true, :label => (I18n.t :project_description) %>
 		</div>
 		<div class="span6">
 			<%= f.input :startDate, :as => :date_select, :input_html => { :value => @current_project.startDate, :class => "span4", :disabled => true }, :label => (I18n.t :starting_date) %>
