@@ -28,6 +28,10 @@ table th {
   text-align: left;
 }
 
+form {
+  @extend .clearfix
+}
+
 #tab-project-overview {
   .column1, .column2 {
     width: 50%;
@@ -86,6 +90,12 @@ table th {
   }
   textarea {
     width: 90%;
+  }
+  #document-upload {
+    max-width: 50%;
+    float: right;
+    overflow: hidden;
+    @extend .clearfix
   }
 }
 

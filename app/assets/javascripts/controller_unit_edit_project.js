@@ -20,6 +20,11 @@ $(function() {
     $('#project_is_project').click(function() {
         enableProjectTabs(this.checked);
     });
+
+    // Enable Upload button, when a file is selected
+    $('#document_data').on('change', function() {
+        $('#document-upload').find('input[type=submit]').prop('disabled', false);
+    });
 });
 
 function enableAppropriateTabs() {

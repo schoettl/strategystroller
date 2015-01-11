@@ -148,8 +148,10 @@
         </div>
       <% end %>
       <%= form_tag(project_documents_path(@project), :multipart => true) %>
-        <%= submit_tag 'Upload' %>
-        <%= file_field 'document', 'data' %>
+        <div id="document-upload">
+          <%= file_field 'document', 'data' %>
+          <%= submit_tag 'Upload', disabled: true %>
+        </div>
       </form>
     </div>
     <div id="tab-project-calculation">
