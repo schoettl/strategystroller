@@ -140,7 +140,7 @@
               </tr>
               <% @project.documents.each do |filename| %>
               <tr>
-                <td><%= link_to filename, project_document_path(@project, url_encode(filename)), :target => '_blank' %></td>
+                <td><%= link_to filename, "/data/#{@project.id}/#{url_encode(filename)}", :target => '_blank' %></td>
               </tr>
               <% end %>
             </table>
