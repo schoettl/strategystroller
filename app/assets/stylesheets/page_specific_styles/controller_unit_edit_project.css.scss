@@ -141,12 +141,12 @@ form {
     background-color: #000;
   }
   .signal-light.on-time {
-    background-color: #0f0;
+    background-color: green;
   }
   .signal-light.delayed {
-    background-color: #ff0;
+    background-color: yellow;
   }
     .signal-light.critical {
-    background-color: #f00;
+    background-color: red;
   }
 }
