@@ -9,7 +9,6 @@ class Project < ActiveRecord::Base
   CALCULATION_ROW_SUB_TOTAL = 2
   CALCULATION_ROW_TOTAL = 3
 
-   belongs_to :customer
   attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
                   :status_manp, :status_ms, :status_notes, :status_prog, :target_cost, :target_manp,
@@ -26,6 +25,8 @@ class Project < ActiveRecord::Base
   serialize :status_ms, Hash
 
   ### ASSOCIATIONS
+  ## customer
+  belongs_to :customer
   ## parent
   has_and_belongs_to_many :indicators
   ## owner
