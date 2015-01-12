@@ -71,7 +71,5 @@ StrategyStroller::Application.routes.draw do
   get 'controller_unit/projects/:id/edit' => 'controller_unit#edit_project', :as => 'edit_project'
   put 'controller_unit/projects/:id' => 'controller_unit#update_project', :as => 'project'
   post 'controller_unit/projects/:project_id/documents' => 'controller_unit#create_document', :as => 'project_documents'
-  get 'controller_unit/projects/:project_id/documents/:filename' => 'controller_unit#show_document', :as => 'project_document',
-      :filename => /[\w\-.~%]+/ # Filename will be URL encoded. Only allow unreserved characters (RFC 3986 section 2.3) and percent character.
 
 end
