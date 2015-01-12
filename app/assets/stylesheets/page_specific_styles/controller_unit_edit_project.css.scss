@@ -32,6 +32,14 @@ form {
   @extend .clearfix
 }
 
+.field_with_errors {
+  display: inline-block;
+  float: left;
+  input {
+    border-color: red;
+  }
+}
+
 #tab-project-overview {
   .column1, .column2 {
     width: 50%;

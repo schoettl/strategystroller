@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   attr_accessible :actual_cost, :actual_manp, :compensation, :management_summary, :actual_duration, :target_duration,
                   :endDate, :inplan, :name, :notes, :startDate, :status_cost, :status_global,
                   :status_manp, :status_ms, :status_notes, :status_prog, :target_cost, :target_manp,
-                  :indicator_ids, :head_id, :steer_id, :user_ids, :team, :yearly_target_cost,
+                  :indicator_ids, :head_id, :customer_id, :steer_id, :user_ids, :team, :yearly_target_cost,
                   :yearly_target_manp, :short_name, :updated_at,
                   :description_of_objectives,
                   :decision_requirements_1, :decision_requirements_2, :decision_requirements_3, :decision_requirements_4,

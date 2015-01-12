@@ -156,7 +156,7 @@ class ControllerUnitController < ApplicationController
 
   def update_project
     @project = Project.find(params[:id])
-    if @project.update_attributes!(params[:project]) # Why not update, as in Getting Started?
+    if @project.update_attributes(params[:project]) # Why not update, as in Getting Started?
       redirect_to edit_project_path(@project)
     else
       render 'edit_project'
