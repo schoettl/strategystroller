@@ -1,5 +1,15 @@
 class Document
 
+  # Sorry for this class. This is not a real Model class, but it also
+  # represents an entity: a document. a project can have any number of
+  # attached documents.
+  #
+  # We didn't wanted to save the files in the database, so we save them
+  # in the file system. This class implements the access to this files.
+  #
+  # Warning: The documents are stored in and served from the public folder.
+  # See constants below.
+
   MAX_FILE_SIZE = 20e6
 
   PROJECT_DOCUMENT_FOLDER = 'project_documents'
