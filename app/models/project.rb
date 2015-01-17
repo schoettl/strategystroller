@@ -436,25 +436,25 @@ class Project < ActiveRecord::Base
     # Return this data from the model:
     # :values is array with numbers as in table on tab 4 (calculation)
     [
-      {:text => 'Umsatz', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
-      {:text => '-Fahrgeld', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-sonstiger externer Umsatz', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-Bestellerentgelt', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => 'sonstige betriebliche Ertraege', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
-      {:text => 'Summe Ertraege', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }}, # TODO ä statt ae
-      {:text => 'Materialaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
-      {:text => '-Anteil Stationsentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-Anteil Trassenentgelte (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-Anteil Aufwand Energie (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => '-Anteil sonstiger Materialaufwand (%)', :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
-      {:text => 'Personalaufwand', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
-      {:text => 'Abschreibungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
-      {:text => 'sonstige betriebliche Aufwendungen', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
-      {:text => 'Summe Aufwand', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
-      {:text => 'Wirkung Betriebsergebnis', :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
-      {:text => 'Investition', :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:turnover), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:fares), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:customer_compensation), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:other_external_costs), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:other_operating_income), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:total_income), :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+
+      {:text => I18n.t(:material_expenses), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:station_fees_percent), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:route_fees_percent), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:energy_costs_percent), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:other_material_fees_percent), :row_type => CALCULATION_ROW_NORMAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:personnel_expenses), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:deprecation), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:other_operating_expenses), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:total_expenses), :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+
+      {:text => I18n.t(:effect_of_operating_result), :row_type => CALCULATION_ROW_TOTAL, :values => next_years.map { 0 }},
+      {:text => I18n.t(:investment), :row_type => CALCULATION_ROW_SUB_TOTAL, :values => next_years.map { 0 }}
     ]
   end
 
