@@ -419,10 +419,10 @@ class Project < ActiveRecord::Base
 
     # Return this data from the model:
     [
-      {:text => 'Duration [d]', :target => target_duration, :current => actual_duration, :progress => duration_percent, :status => STATUS_ON_TIME , :gsi => true},
-      {:text => 'Manpower [MM]', :target => target_manp, :current => 0, :progress => manpower_percent, :status => STATUS_DELAYED, :gsi => true},
-      {:text => 'Cost [thousands (money)]', :target => target_cost, :current => actual_cost, :progress => cost_percent, :status => STATUS_CRITICAL, :gsi => false},
-      {:text => 'Milestones', :target => 0, :current => 0, :progress => milestones_percent, :status => STATUS_ON_TIME, :gsi => false}
+      {:text => I18n.t(:duration_in_days), :target => target_duration, :current => actual_duration, :progress => duration_percent, :status => STATUS_ON_TIME , :gsi => true},
+      {:text => I18n.t(:manpower_in_man_months), :target => target_manp, :current => 0, :progress => manpower_percent, :status => STATUS_DELAYED, :gsi => true},
+      {:text => I18n.t(:costs_in_thousands), :target => target_cost, :current => actual_cost, :progress => cost_percent, :status => STATUS_CRITICAL, :gsi => false},
+      {:text => I18n.t(:milestones), :target => 0, :current => 0, :progress => milestones_percent, :status => STATUS_ON_TIME, :gsi => false}
     ]
   end
 

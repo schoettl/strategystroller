@@ -37,6 +37,7 @@
   setup: "Setup"
   edit_users: "Benutzer bearbeiten"
   back: "Zurück"
+  # Project > Calculation > Calculation table
   turnover: "Umsatz"
   fares: "Fahrgeld"
   customer_compensation: "Bestellerentgelt"
@@ -54,3 +55,8 @@
   total_expenses: "Summe Aufwand"
   effect_of_operating_result: "Wirkung Betriebsergebnis I"
   investment: "Investitionen"
+  # Project > Status > Status table
+  duration_in_days: "Dauer (Tage)"
+  manpower_in_man_months: "Personalaufwand (Personalmonat)"
+  costs_in_thousands: "Kosten (Tausend)"
+  milestones: "Meilensteine"
