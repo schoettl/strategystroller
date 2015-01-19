@@ -38,8 +38,10 @@
   edit_users: "Benutzer bearbeiten"
   back: "Zurück"
   # Project
+  new_project: "Neues Projekt"
   progress_placeholder: "Fortschritt: %{percent_value} Prozent"
   indicators: "Indikatoren"
+  projects: "Projekte"
   project_overview: "Übersicht"
   project_planning: "Projektplanung"
   project_resolution: "Beschlussvorlage"
@@ -82,6 +84,32 @@
   costs_in_thousands: "Kosten (Tausend)"
   milestones: "Meilensteine"
   activerecord:
+    models:
+      activity:
+        one: "Arbeitspaket"
+        other: "Arbeitspakete"
+      admin_user:
+        one: "Administrator"
+        other: "Administratoren"
+      customer:
+        one: "Kunde"
+        other: "Kunden"
+      dimension:
+        one: "Dimension"
+        other: "Dimensionen"
+      form:
+        one: "Formular"
+        other: "Formulare"
+      goal:
+        one: "Ziel"
+        other: "Ziele"
+      indicator:
+        one: "Indikator"
+        other: "Indikatoren"
+      project:
+        one: "Projekt"
+        other: "Projekte"
+      user: "Benutzer"
     attributes:
       project:
         name: "Name"

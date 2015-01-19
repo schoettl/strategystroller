@@ -373,8 +373,10 @@
       find_me_in_app: "Find me in app/views/home/index.html.erb"
       i_am_just_a: "I am just a template, please ignore me ###\n### You will be redirected appropriately, shortly ###\n### You should not be seeing this page ###"
   # Project
+  new_project: "New Project"
   progress_placeholder: "Progress: %{percent_value} percent done"
   indicators: "Indicators"
+  projects: "Projects"
   project_overview: "Overview"
   project_planning: "Planning"
   project_resolution: "Resolution"
