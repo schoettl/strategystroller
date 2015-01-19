@@ -4,22 +4,22 @@
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Project</a>
+    <a class="brand" href="#"><%=t :project %></a>
   </div>
 </div>
 <div class="well">
   <div id="tabs">
     <ul>
-      <li><a href="#tab-project-overview">Overview</a></li>
-      <li><a href="#tab-project-planning">Project Planning</a></li>
-      <li><a href="#tab-project-resolutions">Resolution</a></li>
-      <li><a href="#tab-project-calculation">Economic Efficiency Calculation</a></li>
-      <li><a href="#tab-project-status">Status</a></li>
+      <li><a href="#tab-project-overview"><%=t :project_overview %></a></li>
+      <li><a href="#tab-project-planning"><%=t :project_planning %></a></li>
+      <li><a href="#tab-project-resolutions"><%=t :project_resolution %></a></li>
+      <li><a href="#tab-project-calculation"><%=t :project_calculation %></a></li>
+      <li><a href="#tab-project-status"><%=t :project_status %></a></li>
     </ul>
     <div id="tab-project-overview">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
         <div class="column1">
-            <div>Project ID <%= @project.id %></div>
+            <div><%=t :project_id %> <%= @project.id %></div>
             <div>
               <%= f.label :short_name %>
               <%= f.text_field :short_name %>
@@ -77,12 +77,12 @@
           <div>
             <%= f.label :target_manp %>
             <%= f.text_field :target_manp %>
-            <span class="unit">man months</span>
+            <span class="unit"><%=t :unit_man_months %></span>
           </div>
           <div>
             <%= f.label :target_cost %>
             <%= f.text_field :target_cost %>
-            <span class="unit">thousands (money)</span>
+            <span class="unit"><%=t :unit_thousands %></span>
           </div>
         </div>
         <div class="column2">
@@ -136,7 +136,7 @@
           <div>
             <table>
               <tr>
-                <th>Documents</th>
+                <th><%=t :documents %></th>
               </tr>
               <% @project.documents.each do |filename| %>
               <tr>
@@ -150,7 +150,7 @@
       <%= form_tag(project_documents_path(@project), :multipart => true) %>
         <div id="document-upload">
           <%= file_field 'document', 'data' %>
-          <%= submit_tag 'Upload', disabled: true %>
+          <%= submit_tag t(:upload_document), disabled: true %>
         </div>
       </form>
     </div>
@@ -166,7 +166,7 @@
           </div>
           <%= f.submit %>
           <%= cancel_edit_project_link %>
-          <h2>Wirtschaftlichkeitsrechnung</h2>
+          <h2><%=t :calculation %></h2>
           <table>
             <tr>
               <th></th>
@@ -188,17 +188,17 @@
     <div id="tab-project-status">
       <%= form_for :project, url: project_path(@project), method: :put do |f| %>
           <%# This data is used in the JavaScript: %>
-          <%= tag :div, {id: 'updates-requested', data: {'flag' => @project.updates_requested}}, open: true %></div>
+          <%= content_tag :div,  nil, id: 'updates-requested', data: {'flag' => @project.updates_requested} %>
           <div>
-            <h2>Status monitoring for <%= @project.next_years.first %></h2>
+            <h2><%=t :status_monitoring_heading, year: @project.next_years.first %></h2>
             <table>
               <tr>
-                <th>Project data</th>
-                <th>Target</th>
-                <th>Current</th>
-                <th>Progress</th>
-                <th>Status</th>
-                <th>GSI?</th>
+                <th><%=t :project_data %></th>
+                <th><%=t :target %></th>
+                <th><%=t :current %></th>
+                <th><%=t :progress %></th>
+                <th><%=t :status %></th>
+                <th><%=t :gsi %></th>
               </tr>
               <% @project.status_data.each do |d| %>
               <tr>
@@ -207,7 +207,7 @@
                 <td><%= d[:current] %></td>
                 <td>
                   <progress max="100" value="<%=h d[:progress] %>">
-                    <strong>Progress: <%= d[:progress] %> percent done</strong>
+                    <strong><%=t :progress_placeholder, percent_value: d[:progress] %></strong>
                   </progress>
                 </td>
                 <td>

@@ -43,7 +43,7 @@ module ControllerUnitHelper
   end
 
   def cancel_edit_project_link
-    link_to 'Cancel', edit_project_path(@project)
+    link_to t(:cancel), edit_project_path(@project)
   end
 
   def calculation_row(row_type)
