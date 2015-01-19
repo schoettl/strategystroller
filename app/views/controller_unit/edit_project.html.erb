@@ -213,7 +213,10 @@
                 <td>
                   <div class="signal-light <%=h d[:status] %>"></div>
                 </td>
-                <td><input type="checkbox" disabled <%= 'checked' if d[:gsi] %>><%#= check_box_tag nil, nil, d[:gsi], disabled: true %></td>
+                <td>
+                  <%# Cannot use check_box_tag here, because it produces an empty id attribute when nil is passed (-> invalid HTML5) (Rails 3.2.11) %>
+                  <input type="checkbox" disabled <%= 'checked' if d[:gsi] %>>
+                </td>
               </tr>
               <% end %>
             </table>
