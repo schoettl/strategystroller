@@ -91,9 +91,7 @@
       admin_user:
         one: "Administrator"
         other: "Administratoren"
-      customer:
-        one: "Kunde"
-        other: "Kunden"
+      customer: "Auftraggeber"
       dimension:
         one: "Dimension"
         other: "Dimensionen"
